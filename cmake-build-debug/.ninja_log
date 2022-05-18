@@ -1,6 +1,18 @@
 # ninja log v5
 12	64	6745951395767060	CMakeFiles/DA_2nd_Project.dir/graphcreator.cpp.obj	8a744f8a8d75d5c8
+2	307	6746002407463207	CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj	77784ce66e39c698
 1	319	6745951398307036	CMakeFiles/DA_2nd_Project.dir/main.cpp.obj	d5d3b259dc652a61
-16	351	6745951398597027	CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj	77784ce66e39c698
 14	401	6745951399137025	CMakeFiles/DA_2nd_Project.dir/graph.cpp.obj	aeedd36bc1999bd7
-401	520	6745951400287018	DA_2nd_Project.exe	4570fc5ebfd7746a
+308	405	6746002408423674	DA_2nd_Project.exe	4570fc5ebfd7746a
+2	274	6746117922510178	build.ninja	6bbec79037582c82
+2	426	6746117927330173	CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj	77784ce66e39c698
+4	431	6746117927370193	CMakeFiles/DA_2nd_Project.dir/filereader.cpp.obj	3db4c09481b7b309
+6	432	6746117927380176	CMakeFiles/DA_2nd_Project.dir/graph.cpp.obj	aeedd36bc1999bd7
+432	608	6746117929126966	DA_2nd_Project.exe	5185b24ea4156794
+2	356	6746119811195188	CMakeFiles/DA_2nd_Project.dir/filereader.cpp.obj	3db4c09481b7b309
+356	444	6746119812045184	DA_2nd_Project.exe	5185b24ea4156794
+2	321	6746120564390555	CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj	77784ce66e39c698
+5	377	6746120564960539	CMakeFiles/DA_2nd_Project.dir/filereader.cpp.obj	3db4c09481b7b309
+378	469	6746120565840541	DA_2nd_Project.exe	5185b24ea4156794
+2	353	6746120831530125	CMakeFiles/DA_2nd_Project.dir/filereader.cpp.obj	3db4c09481b7b309
+354	435	6746120832310117	DA_2nd_Project.exe	5185b24ea4156794

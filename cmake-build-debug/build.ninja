@@ -61,14 +61,14 @@ build CMakeFiles/DA_2nd_Project.dir/graph.cpp.obj: CXX_COMPILER__DA_2nd_Project_
   OBJECT_DIR = CMakeFiles\DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles\DA_2nd_Project.dir
 
-build CMakeFiles/DA_2nd_Project.dir/graphcreator.cpp.obj: CXX_COMPILER__DA_2nd_Project_Debug C$:/Users/35191/CLionProjects/DA_2nd_Project/graphcreator.cpp || cmake_object_order_depends_target_DA_2nd_Project
-  DEP_FILE = CMakeFiles\DA_2nd_Project.dir\graphcreator.cpp.obj.d
+build CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj: CXX_COMPILER__DA_2nd_Project_Debug C$:/Users/35191/CLionProjects/DA_2nd_Project/menu.cpp || cmake_object_order_depends_target_DA_2nd_Project
+  DEP_FILE = CMakeFiles\DA_2nd_Project.dir\menu.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles\DA_2nd_Project.dir
 
-build CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj: CXX_COMPILER__DA_2nd_Project_Debug C$:/Users/35191/CLionProjects/DA_2nd_Project/menu.cpp || cmake_object_order_depends_target_DA_2nd_Project
-  DEP_FILE = CMakeFiles\DA_2nd_Project.dir\menu.cpp.obj.d
+build CMakeFiles/DA_2nd_Project.dir/filereader.cpp.obj: CXX_COMPILER__DA_2nd_Project_Debug C$:/Users/35191/CLionProjects/DA_2nd_Project/filereader.cpp || cmake_object_order_depends_target_DA_2nd_Project
+  DEP_FILE = CMakeFiles\DA_2nd_Project.dir\filereader.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles\DA_2nd_Project.dir
@@ -81,7 +81,7 @@ build CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj: CXX_COMPILER__DA_2nd_Project_D
 #############################################
 # Link the executable DA_2nd_Project.exe
 
-build DA_2nd_Project.exe: CXX_EXECUTABLE_LINKER__DA_2nd_Project_Debug CMakeFiles/DA_2nd_Project.dir/main.cpp.obj CMakeFiles/DA_2nd_Project.dir/graph.cpp.obj CMakeFiles/DA_2nd_Project.dir/graphcreator.cpp.obj CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj
+build DA_2nd_Project.exe: CXX_EXECUTABLE_LINKER__DA_2nd_Project_Debug CMakeFiles/DA_2nd_Project.dir/main.cpp.obj CMakeFiles/DA_2nd_Project.dir/graph.cpp.obj CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj CMakeFiles/DA_2nd_Project.dir/filereader.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\DA_2nd_Project.dir

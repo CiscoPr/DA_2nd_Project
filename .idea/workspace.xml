@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="DA_2nd_Project" targetName="DA_2nd_Project" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
@@ -7,11 +12,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80c9e607-9972-4c26-9889-0cf9ab6c46fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DA_2nd_Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DA_2nd_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DA_2nd_Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in01.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in02.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in02.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in03.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in03.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in04.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in04.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in05.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in05.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in06.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in06.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in07.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in07.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in08.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in08.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in09.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in09.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/in10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e5aeb8e7d7e175b96c84.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-05-18T17-33-41-0189.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-DA_2nd_Project-Debug-f24af55588850611ca1a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DA_2nd_Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DA_2nd_Project.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphcreator.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphcreator.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/menu.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +49,12 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -30,6 +62,10 @@
     <option name="minorVersion" value="3.3" />
   </component>
   <component name="ProjectId" id="29LbGnlRvUAc8bxMNg6OtGJypFs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -38,6 +74,19 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DA_2nd_Project" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DA_2nd_Project" TARGET_NAME="DA_2nd_Project" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DA_2nd_Project" RUN_TARGET_NAME="DA_2nd_Project">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -47,10 +96,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652895220058</updated>
+      <workItem from="1652895221552" duration="10008000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
