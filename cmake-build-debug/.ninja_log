@@ -1,0 +1,6 @@
+# ninja log v5
+12	64	6745951395767060	CMakeFiles/DA_2nd_Project.dir/graphcreator.cpp.obj	8a744f8a8d75d5c8
+1	319	6745951398307036	CMakeFiles/DA_2nd_Project.dir/main.cpp.obj	d5d3b259dc652a61
+16	351	6745951398597027	CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj	77784ce66e39c698
+14	401	6745951399137025	CMakeFiles/DA_2nd_Project.dir/graph.cpp.obj	aeedd36bc1999bd7
+401	520	6745951400287018	DA_2nd_Project.exe	4570fc5ebfd7746a
