@@ -1,9 +1,13 @@
 #include "Menu.h"
 #include "filereader.h"
 #include <chrono>
+#include "graph.h"
 Menu::Menu() = default;
 
 void Menu::start() {
+
+    int n;
+    Graph g(n, true);
     unsigned short answer;
     bool error = true;
     int dataset_number;
@@ -37,7 +41,7 @@ void Menu::start() {
                     dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
                 else
                     dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
-                file.load_database(dataset_file);
+                g = file.load_database(dataset_file);
                 std::cout << "Dataset loaded successfully!\n";
                 break;
             }

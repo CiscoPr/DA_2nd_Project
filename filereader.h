@@ -7,6 +7,8 @@
 
 
 #include <string>
+#include "graph.h"
+
 
 class filereader {
 protected:
@@ -14,7 +16,7 @@ protected:
     int number_of_branches;
 public:
     filereader();
-    void load_database(std::string file_name);
+    Graph load_database(std::string file_name);
     void setNodes(int s){
         number_of_nodes=s;
     }

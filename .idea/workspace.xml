@@ -12,33 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80c9e607-9972-4c26-9889-0cf9ab6c46fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DA_2nd_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DA_2nd_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in01.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in02.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in02.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in03.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in03.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in04.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in04.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in05.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in05.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in06.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in06.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in07.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in07.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in08.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in08.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in09.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in09.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/in10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/in10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e5aeb8e7d7e175b96c84.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-05-18T17-33-41-0189.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-DA_2nd_Project-Debug-f24af55588850611ca1a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-de88e0a5325b4068a708.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-05-18T21-16-32-0296.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/DA_2nd_Project.dir/menu.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/DA_2nd_Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/DA_2nd_Project.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphcreator.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphcreator.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/filereader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/menu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/menu.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +45,7 @@
     <option name="minorVersion" value="3.3" />
   </component>
   <component name="ProjectId" id="29LbGnlRvUAc8bxMNg6OtGJypFs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -77,12 +61,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="DA_2nd_Project" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DA_2nd_Project" TARGET_NAME="DA_2nd_Project" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DA_2nd_Project" RUN_TARGET_NAME="DA_2nd_Project">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DA_2nd_Project" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DA_2nd_Project" TARGET_NAME="DA_2nd_Project" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DA_2nd_Project" RUN_TARGET_NAME="DA_2nd_Project">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -96,7 +80,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652895220058</updated>
-      <workItem from="1652895221552" duration="10008000" />
+      <workItem from="1652895221552" duration="10441000" />
+      <workItem from="1652909192507" duration="436000" />
     </task>
     <servers />
   </component>

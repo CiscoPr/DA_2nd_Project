@@ -8,7 +8,7 @@
 #include "graph.h"
 filereader::filereader() {}
 
-void filereader::load_database(std::string filename) {
+Graph filereader::load_database(std::string filename) {
     bool empty_line = false;
     std::ifstream database;
     database.open(filename);
@@ -38,4 +38,6 @@ void filereader::load_database(std::string filename) {
         //std::cout << "The init node is " << src << " the final is " << dest << " with capacity of " << cap << " and duration of " << dur << "\n";
         edges_integer --;
     }
+    database.close();
+    return graph;
 }
