@@ -18,9 +18,8 @@ void Menu::start() {
         cout <<
              "-----------------------------" << endl <<
              "|           Trips           |" << endl <<
-             "|Select dataset:         1  |" << endl <<
-             "|United groups:          2  |" << endl <<
-             "|Separate groups:        3  |" << endl <<
+             "|United groups:          1  |" << endl <<
+             "|Separate groups:        2  |" << endl <<
              "|Exit:                   0  |" << endl <<
              "-----------------------------" << endl;
         cin >> answer;
@@ -48,13 +47,15 @@ void Menu::start() {
                 break;
             }
             case 2: {
-
-                error = false;
-                break;
-            }
-
-            case 3: {
-
+                cout << "Please input the number of the dataset you wish to load: ";
+                cin.clear();
+                cin >> dataset_number;
+                if(dataset_number < 10)
+                    dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
+                else
+                    dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
+                g = file.load_database(dataset_file);
+                std::cout << "Dataset loaded successfully!\n";
                 error = false;
                 break;
             }

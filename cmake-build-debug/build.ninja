@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/phranklin/CLionProjects/DA_2nd_Project/cmake-build-debug/
+cmake_ninja_workdir = /Users/kikoprada/DA_2nd_Project/cmake-build-debug/
 
 #############################################
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/phranklin/CLionProjects/DA_2nd_Project/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/phranklin/CLionProjects/DA_2nd_Project -B/Users/phranklin/CLionProjects/DA_2nd_Project/cmake-build-debug
+  COMMAND = cd /Users/kikoprada/DA_2nd_Project/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/kikoprada/DA_2nd_Project -B/Users/kikoprada/DA_2nd_Project/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/phranklin/CLionProjects/DA_2nd_Project/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/kikoprada/DA_2nd_Project/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -72,33 +72,33 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_DA_2nd_Project: phony || CMakeFiles/DA_2nd_Project.dir
 
-build CMakeFiles/DA_2nd_Project.dir/main.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/phranklin/CLionProjects/DA_2nd_Project/main.cpp || cmake_object_order_depends_target_DA_2nd_Project
+build CMakeFiles/DA_2nd_Project.dir/main.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/kikoprada/DA_2nd_Project/main.cpp || cmake_object_order_depends_target_DA_2nd_Project
   DEP_FILE = CMakeFiles/DA_2nd_Project.dir/main.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++14
   OBJECT_DIR = CMakeFiles/DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_2nd_Project.dir
   TARGET_COMPILE_PDB = CMakeFiles/DA_2nd_Project.dir/
   TARGET_PDB = DA_2nd_Project.pdb
 
-build CMakeFiles/DA_2nd_Project.dir/graph.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/phranklin/CLionProjects/DA_2nd_Project/graph.cpp || cmake_object_order_depends_target_DA_2nd_Project
+build CMakeFiles/DA_2nd_Project.dir/graph.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/kikoprada/DA_2nd_Project/graph.cpp || cmake_object_order_depends_target_DA_2nd_Project
   DEP_FILE = CMakeFiles/DA_2nd_Project.dir/graph.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++14
   OBJECT_DIR = CMakeFiles/DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_2nd_Project.dir
   TARGET_COMPILE_PDB = CMakeFiles/DA_2nd_Project.dir/
   TARGET_PDB = DA_2nd_Project.pdb
 
-build CMakeFiles/DA_2nd_Project.dir/menu.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/phranklin/CLionProjects/DA_2nd_Project/menu.cpp || cmake_object_order_depends_target_DA_2nd_Project
+build CMakeFiles/DA_2nd_Project.dir/menu.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/kikoprada/DA_2nd_Project/menu.cpp || cmake_object_order_depends_target_DA_2nd_Project
   DEP_FILE = CMakeFiles/DA_2nd_Project.dir/menu.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++14
   OBJECT_DIR = CMakeFiles/DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_2nd_Project.dir
   TARGET_COMPILE_PDB = CMakeFiles/DA_2nd_Project.dir/
   TARGET_PDB = DA_2nd_Project.pdb
 
-build CMakeFiles/DA_2nd_Project.dir/filereader.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/phranklin/CLionProjects/DA_2nd_Project/filereader.cpp || cmake_object_order_depends_target_DA_2nd_Project
+build CMakeFiles/DA_2nd_Project.dir/filereader.cpp.o: CXX_COMPILER__DA_2nd_Project_Debug /Users/kikoprada/DA_2nd_Project/filereader.cpp || cmake_object_order_depends_target_DA_2nd_Project
   DEP_FILE = CMakeFiles/DA_2nd_Project.dir/filereader.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -std=gnu++14
   OBJECT_DIR = CMakeFiles/DA_2nd_Project.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_2nd_Project.dir
   TARGET_COMPILE_PDB = CMakeFiles/DA_2nd_Project.dir/
@@ -113,7 +113,7 @@ build CMakeFiles/DA_2nd_Project.dir/filereader.cpp.o: CXX_COMPILER__DA_2nd_Proje
 # Link the executable DA_2nd_Project
 
 build DA_2nd_Project: CXX_EXECUTABLE_LINKER__DA_2nd_Project_Debug CMakeFiles/DA_2nd_Project.dir/main.cpp.o CMakeFiles/DA_2nd_Project.dir/graph.cpp.o CMakeFiles/DA_2nd_Project.dir/menu.cpp.o CMakeFiles/DA_2nd_Project.dir/filereader.cpp.o
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   OBJECT_DIR = CMakeFiles/DA_2nd_Project.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -130,7 +130,7 @@ build DA_2nd_Project: CXX_EXECUTABLE_LINKER__DA_2nd_Project_Debug CMakeFiles/DA_
 # =============================================================================
 
 #############################################
-# Folder: /Users/phranklin/CLionProjects/DA_2nd_Project/cmake-build-debug
+# Folder: /Users/kikoprada/DA_2nd_Project/cmake-build-debug
 
 build all: phony DA_2nd_Project
 
