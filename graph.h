@@ -1,9 +1,4 @@
-//
-// Created by 35191 on 16/05/2022.
-//
-
-#ifndef DA_2ND_PROJECT_GRAPH_H
-#define DA_2ND_PROJECT_GRAPH_H
+#pragma once
 
 #include <vector>
 #include <list>
@@ -33,10 +28,4 @@ public:
     Graph(int nodes, bool dir = false);
     // Add edge from source to destination with a certain weight
     void addEdge(int src, int dest, int capacity, int duration);
-
 };
-
-
-
-
-#endif //DA_2ND_PROJECT_GRAPH_H

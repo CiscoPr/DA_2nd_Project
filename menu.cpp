@@ -1,7 +1,8 @@
-#include "Menu.h"
+#include "menu.h"
 #include "filereader.h"
 #include <chrono>
 #include "graph.h"
+
 Menu::Menu() = default;
 
 void Menu::start() {
@@ -18,8 +19,8 @@ void Menu::start() {
              "-----------------------------" << endl <<
              "|           Trips           |" << endl <<
              "|Select dataset:         1  |" << endl <<
-             "|Non seperate groups:    2  |" << endl <<
-             "|Seperate groups:        3  |" << endl <<
+             "|United groups:          2  |" << endl <<
+             "|Separate groups:        3  |" << endl <<
              "|Exit:                   0  |" << endl <<
              "-----------------------------" << endl;
         cin >> answer;
@@ -43,15 +44,18 @@ void Menu::start() {
                     dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
                 g = file.load_database(dataset_file);
                 std::cout << "Dataset loaded successfully!\n";
+                error = false;
                 break;
             }
             case 2: {
 
+                error = false;
                 break;
             }
 
             case 3: {
 
+                error = false;
                 break;
             }
 

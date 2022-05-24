@@ -1,8 +1,5 @@
-//
-// Created by 35191 on 16/05/2022.
-//
-
 #include "graph.h"
+
 // Constructor: nr nodes and direction (default: undirected)
 Graph::Graph(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 }

@@ -1,11 +1,8 @@
-//
-// Created by 35191 on 18/05/2022.
-//
-
 #include <fstream>
 #include "filereader.h"
 #include <iostream>
 #include "graph.h"
+
 filereader::filereader() {}
 
 Graph filereader::load_database(std::string filename) {

@@ -1,10 +1,4 @@
-//
-// Created by 35191 on 18/05/2022.
-//
-
-#ifndef DA_2ND_PROJECT_FILEREADER_H
-#define DA_2ND_PROJECT_FILEREADER_H
-
+#pragma once
 
 #include <string>
 #include "graph.h"
@@ -30,6 +24,3 @@ public:
         return number_of_branches;
     }
 };
-
-
-#endif //DA_2ND_PROJECT_FILEREADER_H
