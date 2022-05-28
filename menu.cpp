@@ -37,11 +37,13 @@ void Menu::start() {
                 cout << "Please input the number of the dataset you wish to load: ";
                 cin.clear();
                 cin >> dataset_number;
+
                 if(dataset_number < 10)
                     dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
                 else
                     dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
                 g = file.load_database(dataset_file);
+
                 std::cout << "Dataset loaded successfully!\n";
                 error = false;
                 break;
