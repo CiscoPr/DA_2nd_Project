@@ -7,25 +7,38 @@
 
 using namespace std;
 
-class Graph {
+class Graph2 {
     struct Edge {
+
         int dest;   // Destination node
-        int capacity; // An integer capacity
-        int duration; // an integer duration
+        int flux; //TODO
+        int capacity; // An integer weight
+        int duration;
     };
 
     struct Node {
         list<Edge> adj; // The list of outgoing edges (to adjacent nodes)
-        bool visited;   // As the node been visited on a search?
+        int dist;
+        int pred;
+        bool visited;
+        string name;
     };
-    int edges;           //number of edges
+
     int n;              // Graph size (vertices are numbered from 1 to n)
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
 
+
+
 public:
     // Constructor: nr nodes and direction (default: undirected)
-    Graph(int nodes, bool dir = false);
+    Graph2(int nodes, bool dir = true);
     // Add edge from source to destination with a certain weight
-    void addEdge(int src, int dest, int capacity, int duration);
+    void addEdge(int src, int dest, int flux,  int capacity, int duration);
+    //applies the Ford-Fulkerson method
+    void fordfulkerson(Graph2 g);
+    list<int> fordfulkerson_path(Graph2 g);
+    void bfs(int v);
+    void edges();
+    void stops();
 };

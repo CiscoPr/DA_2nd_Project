@@ -1,14 +1,14 @@
 #include "menu.h"
 #include "filereader.h"
 #include <chrono>
-#include "graph.h"
+#include "graph2.h"
 
 Menu::Menu() = default;
 
 void Menu::start() {
 
     int n;
-    Graph g(n, true);
+    Graph2 g(n, true);
     unsigned short answer;
     bool error = true;
     int dataset_number;

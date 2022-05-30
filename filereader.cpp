@@ -1,11 +1,11 @@
 #include <fstream>
 #include "filereader.h"
 #include <iostream>
-#include "graph.h"
+#include "graph2.h"
 
 filereader::filereader() {}
 
-Graph filereader::load_database(std::string filename) {
+Graph2 filereader::load_database(std::string filename) {
     bool empty_line = false;
     std::ifstream database;
     database.open(filename);
@@ -17,12 +17,10 @@ Graph filereader::load_database(std::string filename) {
         std::string nodes, edges, initial_node, dest_node, capacity, duration;
         getline(database, nodes, ' ');
         getline(database, edges);
-        setNodes(stoi(nodes));
-        setEdges(stoi(edges));
-        int edges_integer = getEdges();
-        int nodes_integer = getNodes();
+        int edges_integer = stoi(edges);
+        int nodes_integer = stoi(nodes);
         std::cout << "\nIt has " << edges_integer << " edges and " << nodes_integer << " nodes\n";
-        Graph graph(nodes_integer, true);
+        Graph2 graph(nodes_integer, true);
         while(edges_integer!= 0){
             getline(database, initial_node, ' ');
             getline(database, dest_node, ' ');
@@ -32,10 +30,12 @@ Graph filereader::load_database(std::string filename) {
             int dest = stoi(dest_node);
             int cap = stoi(capacity);
             int dur = stoi(duration);
-            graph.addEdge(src, dest, cap, dur);
+            graph.addEdge(src, dest, 0, cap, dur);
             //std::cout << "The init node is " << src << " the final is " << dest << " with capacity of " << cap << " and duration of " << dur << "\n";
             edges_integer --;
         }
+        graph.bfs(4);
+        //graph.fordfulkerson(graph);
         database.close();
         return graph;
     }
