@@ -34,15 +34,21 @@ Graph2 filereader::load_database(std::string filename) {
             //std::cout << "The init node is " << src << " the final is " << dest << " with capacity of " << cap << " and duration of " << dur << "\n";
             edges_integer --;
         }
-        int s, d;
+        int s, d, number_of_people;
         std::cout << "Please enter your initial node: ";
         std::cin >> s;
         std::cout << "Please enter your final node: ";
         std::cin >> d;
-        if(graph.bfs(s, d))
+
+        if(graph.bfs(s, d)) {
             std::cout << "\nIt's reachable\n";
-        else
+            std::cout << "Please insert the number of people of the group: ";
+            std::cin >> number_of_people;
+        }
+        else{
             std::cout << "\nit's not reachable\n";
+        }
+        graph.edmondskarp(graph, s, d);
         //graph.fordfulkerson(graph);
         database.close();
         return graph;
