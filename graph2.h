@@ -36,9 +36,9 @@ public:
     // Add edge from source to destination with a certain weight
     void addEdge(int src, int dest, int flux,  int capacity, int duration);
     //applies the Ford-Fulkerson method
-    void fordfulkerson(Graph2 g);
+    void fordfulkerson(Graph2 g, int src, int dest);
     list<int> fordfulkerson_path(Graph2 g);
-    void bfs(int v);
+    bool bfs(int src, int f);
     void edges();
     void stops();
 };

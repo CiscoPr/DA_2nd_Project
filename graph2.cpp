@@ -13,18 +13,23 @@ void Graph2::addEdge(int src, int dest,int flux,  int capacity, int duration) {
 
 }
 
-void Graph2::bfs(int v){
+bool Graph2::bfs(int s, int d){
+    if(s==d) return true;
 // initialize all nodes as unvisited
-    for(int v=1; v<=n; v++) nodes[v]. visited = false ;
+    for(int s=1; s<=n; s++) nodes[s]. visited = false ;
     queue<int> q; // queue of unvisited nodes
-    q.push(v);
+    q.push(s);
     //nodes[v].dist = 0;
-    nodes[v]. visited = true ;
+    nodes[s]. visited = true ;
     while (!q.empty ()) { // while there are still unprocessed nodes
         int u = q.front (); q.pop (); // remove first element of q
         cout << u << " "; // show node order
-        for(auto e : nodes[u]. adj) {
+        for(auto e : nodes[u].adj) {
             int w = e.dest;
+            if(w == d){
+                cout << w << " ";
+                return true;
+            }
             if (!nodes[w]. visited) { // new node!
                 q.push(w);
                 nodes[w]. visited = true ;
@@ -32,9 +37,11 @@ void Graph2::bfs(int v){
             }
         }
     }
+    return false;
 }
 
 
-void fordfulkerson(Graph2 g){
+void Graph2::fordfulkerson(Graph2 g, int src, int dest ) {
+
 
 }

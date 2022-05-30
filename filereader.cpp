@@ -34,7 +34,15 @@ Graph2 filereader::load_database(std::string filename) {
             //std::cout << "The init node is " << src << " the final is " << dest << " with capacity of " << cap << " and duration of " << dur << "\n";
             edges_integer --;
         }
-        graph.bfs(4);
+        int s, d;
+        std::cout << "Please enter your initial node: ";
+        std::cin >> s;
+        std::cout << "Please enter your final node: ";
+        std::cin >> d;
+        if(graph.bfs(s, d))
+            std::cout << "\nIt's reachable\n";
+        else
+            std::cout << "\nit's not reachable\n";
         //graph.fordfulkerson(graph);
         database.close();
         return graph;
