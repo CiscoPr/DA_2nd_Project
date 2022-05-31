@@ -71,7 +71,7 @@ int Graph2::dfs(int v) {
 }
 
 int Graph2::dijkstra_distance(int a, int b) {
-    MaxHeap<int, uint> pq{n, -1};
+    MaxHeap<int, int> pq{n, -1};
 
     for (int i{1}; i <= n; ++i) {
         pq.insert(i, -1);
@@ -130,5 +130,6 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
             residual_graph.addEdge_res(w, i, flow);
         }
     }
+    return 0;
 }
 
