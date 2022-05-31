@@ -54,6 +54,67 @@ bool Graph2::bfs(int s, int d){
     return false;
 }
 
+int Graph2::dfs(int v) {
+    if (v < 1 || v > n)
+        return 0;
+
+    //cout << v << " "; // show node order
+    nodes[v].visited = true;
+    int count{1};
+    for (auto e : nodes[v].adj) {
+        int w = e.dest;
+        if (!nodes[w].visited)
+            count += dfs(w);
+    }
+
+    return count;
+}
+
+int Graph2::dijkstra_distance(int a, int b) {
+    MaxHeap<int, uint> pq{n, -1};
+
+    for (int i{1}; i <= n; ++i) {
+        pq.insert(i, -1);
+        nodes[i].dist = INT32_MAX;
+    }
+
+    pq.decreaseKey(a, 0);
+    nodes[a].dist = 0;
+
+    while (pq.getSize() > 0) {
+        auto p = pq.removeMinNode();
+        auto &n = nodes[p.key];
+
+        if (p.key == b)
+            return p.value;
+
+        for (Edge e : nodes[p.key].adj) {
+            Node &o = nodes[e.dest];
+            int newdist = e.capacity + n.dist;
+
+            if (o.dist > newdist) {
+                pq.decreaseKey(e.dest, newdist);
+                o.dist = newdist;
+                o.pred = p.key;
+            }
+        }
+    }
+
+    return -1;
+}
+
+list<int> Graph2::dijkstra_path(int a, int b) {
+    list<int> path{};
+
+    if (dijkstra_distance(a, b) >= 0) {
+        int n = b;
+        path.push_front(b);
+        while (n != a)
+            path.push_front(n = nodes[n].pred);
+    }
+
+    return path;
+}
 
 int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     int max_group = 0;
@@ -70,3 +131,4 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
         }
     }
 }
+

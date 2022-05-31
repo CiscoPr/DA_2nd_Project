@@ -5,6 +5,8 @@
 #include <queue>
 #include <iostream>
 
+#include "maxHeap.h"
+
 using namespace std;
 
 class Graph2 {
@@ -41,6 +43,11 @@ public:
     void addEdge_res(int src, int dest, int flux);
 
     bool bfs(int src, int f);
+    int dfs(int v);
+
+    int dijkstra_distance(int a, int b);
+    list<int> dijkstra_path(int a, int b);
+
     void edges();
     void stops();
 };
