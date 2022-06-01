@@ -1,47 +1,38 @@
 #include "graph2.h"
 
-// Constructor: nr nodes and direction (default: undirected)
 Graph2::Graph2(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 }
 
-// Add edge from source to destination with a certain weight
 void Graph2::addEdge(int src, int dest, int capacity, int duration) {
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest, capacity, duration});
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
     if (!hasDir) nodes[dest].adj.push_back({ src, capacity, duration});
-
 }
 
 void Graph2::addEdge_res(int src, int dest, int flux){
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest,flux});
-    //nodes[dest].adj.push_back({-flux, src, capacity, duration});
-    //if (!hasDir) nodes[dest].adj.push_back({src, flux});
 }
 
-pair<bool, int> Graph2::bfs(int s, int d, vector<int> path){
+pair<bool, int> Graph2::bfs(int s, int d, vector<int> &path){
     if(s==d) return {true,nodes[s].flow};
+
     // initialize all nodes as unvisited
-    for(int i=1; i<=n; i++) nodes[i]. visited = false ;
+    for(int i=1; i<=n; i++) nodes[i].visited = false ;
     queue<int> q; // queue of unvisited nodes
     q.push(s);
 
-    //nodes[v].dist = 0;
     nodes[s].visited = true ;
     while (!q.empty ()) { // while there are still unprocessed nodes
         int u = q.front (); q.pop (); // remove first element of q
         path.push_back(u);
-        //cout << u << " "; // show node order
+
         for(auto e : nodes[u].adj) {
             int w = e.dest;
             if(w == d){
                 path.push_back(w);
-                //cout << w << " ";
-                /*for(int i = 0; i < path.size(); i++)
-                    std::cout << path[i]<< " ";
-                */
-                int mxFlow = INT_MAX;
+                int mxFlow = INT32_MAX;
                 for (auto x : path) {
                     mxFlow = min(mxFlow, nodes[x].flow);
                 }
@@ -50,27 +41,10 @@ pair<bool, int> Graph2::bfs(int s, int d, vector<int> path){
             if (!nodes[w].visited) { // new node!
                 q.push(w);
                 nodes[w].visited = true ;
-                //nodes[v].dist = nodes[u].dist + 1;
             }
         }
     }
     return {false, 0};
-}
-
-int Graph2::dfs(int v) {
-    if (v < 1 || v > n)
-        return 0;
-
-    //cout << v << " "; // show node order
-    nodes[v].visited = true;
-    int count{1};
-    for (auto e : nodes[v].adj) {
-        int w = e.dest;
-        if (!nodes[w].visited)
-            count += dfs(w);
-    }
-
-    return count;
 }
 
 pair<int, int> Graph2::maxFlow(int a, int b) {
@@ -122,9 +96,16 @@ pair<int, int> Graph2::maxFlow(int a, int b) {
 
 void Graph2::scenario2(int start, int end) {
     vector<int> path;
-    pair<int, int> mx = maxFlow(start, end);
+    int stops;
+    int maxStops = maxFlow(start, end).second;
+
+    cout << endl;
     int minFlow = bfs(start, end, path).second;
-    int stops = 1;
+    cout << "The shortest path has: " << path.size() << " stops" <<  endl;
+    for (auto x :  path) {
+        cout << x << " ";
+    }
+    cout << endl;
 
     MaxHeap <int> pq;
 
@@ -138,6 +119,8 @@ void Graph2::scenario2(int start, int end) {
     pq.push(nodes[start].flow, start);
 
     while (!pq.empty()) {
+        stops = 1;
+        bool tester = false;
 
         pair<int, int> mx = pq.top();
         pq.pop();
@@ -152,12 +135,37 @@ void Graph2::scenario2(int start, int end) {
                 nodes[w].pred = mx_index;
                 pq.push(nodes[w].flow, w);
                 stops++;
+                if (stops >= maxStops) {
+                    tester = true;
+                    break;
+                }
+                if (nodes[w].flow < minFlow) {
+                    tester = true;
+                    break;
+                }
             }
-            if (stops > mx.second) continue;
-            if (nodes[w].flow < minFlow) continue;
-            cout << "viable path ";
+        }
+        if (!tester || nodes[end].flow == INT32_MAX) continue;
+
+        stack<int> nds;
+        stops = 1;
+        while (nodes[end].pred != 0) {
+            nds.push(end);
+            end = nodes[end].pred;
+            stops++;
         }
 
+        cout << endl << "Possible paths:";
+
+        cout << endl << "Flow: "  << nodes[end].flow << endl;
+        cout << "Stops: " << stops << endl;
+        cout << "Path: " << start << " ";
+
+        while (!nds.empty()) {
+            cout << nds.top() << " ";
+            nds.pop();
+        }
+        cout << endl;
     }
 }
 
@@ -177,8 +185,3 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     }
     return 0;
 }
-
-/*Olá meu lindo, hoje estou muito simpatica
-    e queria te agradecer por seres o meu sugar daddy
-    e por me emprestares sempre tudo
-    es muito boa pessoa, love u <3*/

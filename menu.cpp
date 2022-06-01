@@ -83,5 +83,5 @@ void Menu::interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, stri
     else
         dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
     g = file.load_database(dataset_file);
-    cout << "Dataset loaded successfully!\n";
+    cout << "Dataset loaded successfully!\n" << endl;
 }
