@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <limits>
+#include "graph2.h"
+#include "filereader.h"
 
 
 using namespace std;
@@ -18,4 +20,6 @@ public:
      * Starts user interface
      */
     static void start();
+
+    static void interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, string &dataset_file);
 };

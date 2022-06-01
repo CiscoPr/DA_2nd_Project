@@ -7,8 +7,7 @@ Menu::Menu() = default;
 
 void Menu::start() {
 
-    int n;
-    Graph2 g(n, true);
+    Graph2 g(0, true);
     unsigned short answer;
     bool error = true;
     int dataset_number;
@@ -18,8 +17,9 @@ void Menu::start() {
         cout <<
              "-----------------------------" << endl <<
              "|           Trips           |" << endl <<
-             "|United groups:          1  |" << endl <<
-             "|Separate groups:        2  |" << endl <<
+             "|1.1:                    1  |" << endl <<
+             "|1.2:                    2  |" << endl <<
+             "|Separate groups:        3  |" << endl <<
              "|Exit:                   0  |" << endl <<
              "-----------------------------" << endl;
         cin >> answer;
@@ -34,21 +34,24 @@ void Menu::start() {
         }
         switch (answer) {
             case 1: {
-                cout << "Please input the number of the dataset you wish to load: ";
-                cin.clear();
-                cin >> dataset_number;
+                interfaceNodes(g, file, dataset_number, dataset_file);
 
-                if(dataset_number < 10)
-                    dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
-                else
-                    dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
-                g = file.load_database(dataset_file);
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+                g.maxFlow(p1.first, p1.second);
 
-                std::cout << "Dataset loaded successfully!\n";
                 error = false;
                 break;
             }
             case 2: {
+                interfaceNodes(g, file, dataset_number, dataset_file);
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+                g.scenario2(p1.first, p1.second);
+
+                error = false;
+                break;
+            }
+            case 3: {
                 cout << "Please input the number of the dataset you wish to load: ";
                 cin.clear();
                 cin >> dataset_number;
@@ -68,4 +71,17 @@ void Menu::start() {
                 cout << "Sadly that's not an option. Please choose another one." << endl;
         }
     } while (error);
+}
+
+void Menu::interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, string &dataset_file) {
+    cout << "Please input the number of the dataset you wish to load: ";
+    cin.clear();
+    cin >> dataset_number;
+
+    if(dataset_number < 10)
+        dataset_file = "../Tests/in0" + to_string(dataset_number) +".txt";
+    else
+        dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
+    g = file.load_database(dataset_file);
+    cout << "Dataset loaded successfully!\n";
 }
