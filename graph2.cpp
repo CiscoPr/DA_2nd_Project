@@ -5,11 +5,11 @@ Graph2::Graph2(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 }
 
 // Add edge from source to destination with a certain weight
-void Graph2::addEdge(int src, int dest,int flux,  int capacity, int duration) {
+void Graph2::addEdge(int src, int dest,/*int flux, */ int capacity, int duration) {
     if (src<1 || src>n || dest<1 || dest>n) return;
-    nodes[src].adj.push_back({dest,flux,  capacity, duration});
+    nodes[src].adj.push_back({dest,/*flux ,*/ capacity, duration});
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
-    if (!hasDir) nodes[dest].adj.push_back({ src, flux, capacity, duration});
+    //if (!hasDir) nodes[dest].adj.push_back({ src, /*flux,*/ capacity, duration});
 
 }
 
@@ -17,10 +17,10 @@ void Graph2::addEdge_res(int src, int dest, int flux){
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest,flux});
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
-    if (!hasDir) nodes[dest].adj.push_back({src, flux});
+    //if (!hasDir) nodes[dest].adj.push_back({src, flux});
 }
 
-bool Graph2::bfs(int s, int d){
+bool Graph2::bfs(int s, int d, vector<int> path){
     if(s==d) return true;
     //vector<int> path; //path since source to destine
     // initialize all nodes as unvisited
@@ -32,12 +32,12 @@ bool Graph2::bfs(int s, int d){
     nodes[s].visited = true ;
     while (!q.empty ()) { // while there are still unprocessed nodes
         int u = q.front (); q.pop (); // remove first element of q
-        //path.push_back(u);
+        path.push_back(u);
         cout << u << " "; // show node order
         for(auto e : nodes[u].adj) {
             int w = e.dest;
             if(w == d){
-                //path.push_back(w);
+                path.push_back(w);
                 cout << w << " ";
                 /*for(int i = 0; i < path.size(); i++)
                     std::cout << path[i]<< " ";
