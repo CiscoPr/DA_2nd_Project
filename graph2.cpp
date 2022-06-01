@@ -1,5 +1,5 @@
 #include "graph2.h"
-
+#include <climits>
 // Constructor: nr nodes and direction (default: undirected)
 Graph2::Graph2(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 }
