@@ -6,7 +6,7 @@
 filereader::filereader() {}
 
 Graph2 filereader::load_database(std::string filename) {
-    bool empty_line = false;
+
     std::ifstream database;
     database.open(filename);
     if(!database.is_open()){
@@ -31,27 +31,33 @@ Graph2 filereader::load_database(std::string filename) {
             int cap = stoi(capacity);
             int dur = stoi(duration);
             graph.addEdge(src, dest, 0, cap, dur);
-            //std::cout << "The init node is " << src << " the final is " << dest << " with capacity of " << cap << " and duration of " << dur << "\n";
             edges_integer --;
         }
-        int s, d, number_of_people;
+        database.close();
+
+        return graph;
+    }
+}
+
+pair<int, int> filereader::chooseNodes(Graph2 graph, int choice) {
+    int s, d, number_of_people;
+
+    do {
         std::cout << "Please enter your initial node: ";
         std::cin >> s;
         std::cout << "Please enter your final node: ";
         std::cin >> d;
 
-        graph.maxFlow(s, d);
-        /*if(graph.bfs(s, d)) {
+        if (graph.bfs(s, d)) {
             std::cout << "\nIt's reachable\n";
-            std::cout << "Please insert the number of people of the group: ";
-            std::cin >> number_of_people;
-        }
-        else{
+            if (!choice) {
+                std::cout << "Please insert the number of people of the group: ";
+                std::cin >> number_of_people;
+            }
+        } else {
             std::cout << "\nit's not reachable\n";
         }
-        graph.edmondskarp(graph, s, d);
-        //graph.fordfulkerson(graph);
-        database.close();*/
-        return graph;
-    }
+    } while (!graph.bfs(s, d));
+
+    return {s, d};
 }

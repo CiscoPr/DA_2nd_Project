@@ -11,5 +11,5 @@ protected:
 public:
     filereader();
     Graph2 load_database(std::string file_name);
-
+    pair<int, int> chooseNodes(Graph2 graph, int choice);
 };

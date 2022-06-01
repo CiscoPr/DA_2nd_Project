@@ -17,8 +17,9 @@
     <list default="true" id="80c9e607-9972-4c26-9889-0cf9ab6c46fd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/filereader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filereader.h" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph2.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/menu.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +105,7 @@
       <workItem from="1654015155591" duration="500000" />
       <workItem from="1654022316691" duration="219000" />
       <workItem from="1654029337500" duration="8342000" />
-      <workItem from="1654087633388" duration="4880000" />
+      <workItem from="1654087633388" duration="6913000" />
     </task>
     <servers />
   </component>

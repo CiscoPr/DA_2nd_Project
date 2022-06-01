@@ -43,8 +43,11 @@ void Menu::start() {
                 else
                     dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
                 g = file.load_database(dataset_file);
-
                 std::cout << "Dataset loaded successfully!\n";
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+
+                g.maxFlow(p1.first, p1.second);
                 error = false;
                 break;
             }

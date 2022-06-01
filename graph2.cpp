@@ -33,12 +33,12 @@ bool Graph2::bfs(int s, int d){
     while (!q.empty ()) { // while there are still unprocessed nodes
         int u = q.front (); q.pop (); // remove first element of q
         //path.push_back(u);
-        cout << u << " "; // show node order
+        //cout << u << " "; // show node order
         for(auto e : nodes[u].adj) {
             int w = e.dest;
             if(w == d){
                 //path.push_back(w);
-                cout << w << " ";
+                //cout << w << " ";
                 /*for(int i = 0; i < path.size(); i++)
                     std::cout << path[i]<< " ";
                 */
