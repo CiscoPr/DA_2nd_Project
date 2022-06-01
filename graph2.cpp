@@ -7,7 +7,7 @@ Graph2::Graph2(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 // Add edge from source to destination with a certain weight
 void Graph2::addEdge(int src, int dest,int flux,  int capacity, int duration) {
     if (src<1 || src>n || dest<1 || dest>n) return;
-    nodes[src].adj.push_back({dest,flux,  capacity, duration});
+    nodes[src].adj.push_back({dest, capacity, duration});
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
     if (!hasDir) nodes[dest].adj.push_back({ src, flux, capacity, duration});
 
@@ -22,9 +22,8 @@ void Graph2::addEdge_res(int src, int dest, int flux){
 
 bool Graph2::bfs(int s, int d){
     if(s==d) return true;
-    //vector<int> path; //path since source to destine
     // initialize all nodes as unvisited
-    for(int s=1; s<=n; s++) nodes[s]. visited = false ;
+    for(int i=1; i<=n; i++) nodes[i]. visited = false ;
     queue<int> q; // queue of unvisited nodes
     q.push(s);
 
@@ -74,7 +73,7 @@ void Graph2::maxFlow(int a, int b) {
     MaxHeap <int> pq;
 
     for (Node node : nodes) {
-        node.pred = NULL;
+        node.pred = INT_MAX;
         node.flow = 0;
     }
 
@@ -102,7 +101,7 @@ void Graph2::maxFlow(int a, int b) {
     cout << "The maximum flow is: "  << nodes[b].flow << endl;
     stack<int> nds;
     cout << a << " ";
-    while (nodes[b].pred != NULL) {
+    while (nodes[b].pred != INT_MAX) {
         nds.push(b);
         b = nodes[b].pred;
     }

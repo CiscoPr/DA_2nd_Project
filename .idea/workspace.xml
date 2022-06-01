@@ -19,6 +19,7 @@
       <change beforePath="$PROJECT_DIR$/filereader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/filereader.h" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph2.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/menu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/menu.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +106,8 @@
       <workItem from="1654015155591" duration="500000" />
       <workItem from="1654022316691" duration="219000" />
       <workItem from="1654029337500" duration="8342000" />
-      <workItem from="1654087633388" duration="6913000" />
+      <workItem from="1654087633388" duration="7836000" />
+      <workItem from="1654101895462" duration="527000" />
     </task>
     <servers />
   </component>

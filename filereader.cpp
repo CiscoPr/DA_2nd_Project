@@ -3,9 +3,9 @@
 #include <iostream>
 #include "graph2.h"
 
-filereader::filereader() {}
+filereader::filereader() = default;
 
-Graph2 filereader::load_database(std::string filename) {
+Graph2 filereader::load_database(const std::string& filename) {
 
     std::ifstream database;
     database.open(filename);
@@ -50,7 +50,7 @@ pair<int, int> filereader::chooseNodes(Graph2 graph, int choice) {
 
         if (graph.bfs(s, d)) {
             std::cout << "\nIt's reachable\n";
-            if (!choice) {
+            if (choice != 1) {
                 std::cout << "Please insert the number of people of the group: ";
                 std::cin >> number_of_people;
             }

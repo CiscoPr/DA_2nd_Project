@@ -34,7 +34,7 @@ class Graph2 {
 
 public:
     // Constructor: nr nodes and direction (default: undirected)
-    Graph2(int nodes, bool dir = true);
+    explicit Graph2(int nodes, bool dir = true);
     // Add edge from source to destination with a certain weight
     void addEdge(int src, int dest, int flux,  int capacity, int duration);
     //applies the Ford-Fulkerson method

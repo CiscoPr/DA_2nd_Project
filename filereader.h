@@ -5,11 +5,9 @@
 
 
 class filereader {
-protected:
-    int number_of_nodes;
-    int number_of_branches;
+
 public:
     filereader();
-    Graph2 load_database(std::string file_name);
+    Graph2 load_database(const std::string& file_name);
     pair<int, int> chooseNodes(Graph2 graph, int choice);
 };

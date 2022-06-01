@@ -7,8 +7,7 @@ Menu::Menu() = default;
 
 void Menu::start() {
 
-    int n;
-    Graph2 g(n, true);
+    Graph2 g(0, true);
     unsigned short answer;
     bool error = true;
     int dataset_number;
