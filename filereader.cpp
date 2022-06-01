@@ -40,7 +40,8 @@ Graph2 filereader::load_database(std::string filename) {
         std::cout << "Please enter your final node: ";
         std::cin >> d;
 
-        if(graph.bfs(s, d)) {
+        graph.maxFlow(s, d);
+        /*if(graph.bfs(s, d)) {
             std::cout << "\nIt's reachable\n";
             std::cout << "Please insert the number of people of the group: ";
             std::cin >> number_of_people;
@@ -50,7 +51,7 @@ Graph2 filereader::load_database(std::string filename) {
         }
         graph.edmondskarp(graph, s, d);
         //graph.fordfulkerson(graph);
-        database.close();
+        database.close();*/
         return graph;
     }
 }

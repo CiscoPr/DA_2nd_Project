@@ -70,11 +70,11 @@ int Graph2::dfs(int v) {
     return count;
 }
 
-int Graph2::maxFlow(int a, int b) {
+void Graph2::maxFlow(int a, int b) {
     MaxHeap <int> pq;
 
-    for (auto node : nodes) {
-        node.parent = NULL;
+    for (Node node : nodes) {
+        node.pred = NULL;
         node.flow = 0;
     }
 
@@ -84,28 +84,33 @@ int Graph2::maxFlow(int a, int b) {
 
     while (!pq.empty()) {
 
-        pair<int, int> mx = pq.top(); //mx_flow, index
+        pair<int, int> mx = pq.top();
         pq.pop();
         int mx_flow = mx.first;
         int mx_index = mx.second;
 
         for (auto edge : nodes[mx_index].adj) {
+            int w = edge.dest;
+            if (min(nodes[mx_index].flow, edge.capacity) > nodes[w].flow) {
 
-            if (min(mx_flow, edge.capacity) > nodes[mx_index].adj[edge.dest].capacity) {
-
-                edge.capacity = min(mx_flow, edge.capacity);
-                edge.parent = mx_index;
-                pq.push(edge.capacity, edge.dest);
+                nodes[w].flow = min(mx_flow, edge.capacity);
+                nodes[w].pred = mx_index;
+                pq.push(nodes[w].flow, w);
             }
         }
     }
-
-    while (nodes[b].parent != NULL) {
-        cout << b << " - ";
-        b = nodes[b].parent;
+    cout << "The maximum flow is: "  << nodes[b].flow << endl;
+    stack<int> nds;
+    cout << a << " ";
+    while (nodes[b].pred != NULL) {
+        nds.push(b);
+        b = nodes[b].pred;
     }
-
-    return -1;
+    while (!nds.empty()) {
+        cout << nds.top() << " ";
+        nds.pop();
+    }
+    cout << endl;
 }
 
 int Graph2::edmondskarp(Graph2 g, int src, int dest) {

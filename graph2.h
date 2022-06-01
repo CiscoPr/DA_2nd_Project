@@ -4,6 +4,7 @@
 #include <list>
 #include <queue>
 #include <iostream>
+#include <stack>
 
 #include "maxHeap.h"
 
@@ -16,16 +17,13 @@ class Graph2 {
         int flux; //TODO
         int capacity; // An integer weight
         int duration;
-        int parent;
     };
 
     struct Node {
         vector<Edge> adj; // The list of outgoing edges (to adjacent nodes)
-        int dist;
         int pred;
         bool visited;
         int flow;
-        int parent;
     };
 
     int n;              // Graph size (vertices are numbered from 1 to n)
@@ -47,5 +45,5 @@ public:
     bool bfs(int src, int f);
     int dfs(int v);
 
-    int maxFlow(int a, int b);
+    void maxFlow(int a, int b);
 };
