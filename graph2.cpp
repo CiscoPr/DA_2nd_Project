@@ -5,11 +5,13 @@ Graph2::Graph2(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 }
 
 // Add edge from source to destination with a certain weight
+
 void Graph2::addEdge(int src, int dest, int capacity, int duration) {
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest, capacity, duration});
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
     if (!hasDir) nodes[dest].adj.push_back({ src, capacity, duration});
+
 
 }
 
@@ -22,6 +24,7 @@ void Graph2::addEdge_res(int src, int dest, int flux){
 
 pair<bool, int> Graph2::bfs(int s, int d, vector<int> path){
     if(s==d) return {true,nodes[s].flow};
+
     // initialize all nodes as unvisited
     for(int i=1; i<=n; i++) nodes[i]. visited = false ;
     queue<int> q; // queue of unvisited nodes
@@ -33,11 +36,14 @@ pair<bool, int> Graph2::bfs(int s, int d, vector<int> path){
         int u = q.front (); q.pop (); // remove first element of q
         path.push_back(u);
         //cout << u << " "; // show node order
+
         for(auto e : nodes[u].adj) {
             int w = e.dest;
             if(w == d){
                 path.push_back(w);
+
                 //cout << w << " ";
+
                 /*for(int i = 0; i < path.size(); i++)
                     std::cout << path[i]<< " ";
                 */
@@ -177,8 +183,3 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     }
     return 0;
 }
-
-/*Olá meu lindo, hoje estou muito simpatica
-    e queria te agradecer por seres o meu sugar daddy
-    e por me emprestares sempre tudo
-    es muito boa pessoa, love u <3*/

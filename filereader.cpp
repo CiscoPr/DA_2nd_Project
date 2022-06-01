@@ -49,7 +49,9 @@ pair<int, int> filereader::chooseNodes(Graph2 graph, int choice) {
         std::cout << "Please enter your final node: ";
         std::cin >> d;
 
+
         if (graph.bfs(s, d, path).first) {
+
             std::cout << "\nIt's reachable\n";
             if (choice != 1) {
                 std::cout << "Please insert the number of people of the group: ";

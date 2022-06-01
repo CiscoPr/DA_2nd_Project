@@ -14,6 +14,7 @@ class Graph2 {
     struct Edge {
 
         int dest;   // Destination node
+
         int capacity; // An integer weight
         int duration;
     };
@@ -35,11 +36,14 @@ public:
     // Constructor: nr nodes and direction (default: undirected)
     explicit Graph2(int nodes, bool dir = true);
     // Add edge from source to destination with a certain weight
+
     void addEdge(int src, int dest, int capacity, int duration);
+
     //applies the Ford-Fulkerson method
     int edmondskarp(Graph2 g, int src, int dest);
     // Add edge from source to destination with a certain weight
     void addEdge_res(int src, int dest, int flux);
+
 
     pair<bool, int> bfs(int src, int f, vector<int> path);
     int dfs(int v);
