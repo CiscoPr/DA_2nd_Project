@@ -34,38 +34,20 @@ void Menu::start() {
         }
         switch (answer) {
             case 1: {
-                cout << "Please input the number of the dataset you wish to load: ";
-                cin.clear();
-                cin >> dataset_number;
-
-                if(dataset_number < 10)
-                    dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
-                else
-                    dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
-                g = file.load_database(dataset_file);
-                std::cout << "Dataset loaded successfully!\n";
+                interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
-
                 g.maxFlow(p1.first, p1.second);
+
                 error = false;
                 break;
             }
             case 2: {
-                cout << "Please input the number of the dataset you wish to load: ";
-                cin.clear();
-                cin >> dataset_number;
-
-                if(dataset_number < 10)
-                    dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
-                else
-                    dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
-                g = file.load_database(dataset_file);
-                std::cout << "Dataset loaded successfully!\n";
+                interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
-
                 g.scenario2(p1.first, p1.second);
+
                 error = false;
                 break;
             }
@@ -89,4 +71,17 @@ void Menu::start() {
                 cout << "Sadly that's not an option. Please choose another one." << endl;
         }
     } while (error);
+}
+
+void Menu::interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, string &dataset_file) {
+    cout << "Please input the number of the dataset you wish to load: ";
+    cin.clear();
+    cin >> dataset_number;
+
+    if(dataset_number < 10)
+        dataset_file = "../Tests/in0" + to_string(dataset_number) +".txt";
+    else
+        dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
+    g = file.load_database(dataset_file);
+    cout << "Dataset loaded successfully!\n";
 }
