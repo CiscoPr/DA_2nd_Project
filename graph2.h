@@ -16,14 +16,16 @@ class Graph2 {
         int flux; //TODO
         int capacity; // An integer weight
         int duration;
+        int parent;
     };
 
     struct Node {
-        list<Edge> adj; // The list of outgoing edges (to adjacent nodes)
+        vector<Edge> adj; // The list of outgoing edges (to adjacent nodes)
         int dist;
         int pred;
         bool visited;
-        string name;
+        int flow;
+        int parent;
     };
 
     int n;              // Graph size (vertices are numbered from 1 to n)
@@ -45,9 +47,5 @@ public:
     bool bfs(int src, int f);
     int dfs(int v);
 
-    int dijkstra_distance(int a, int b);
-    list<int> dijkstra_path(int a, int b);
-
-    void edges();
-    void stops();
+    int maxFlow(int a, int b);
 };

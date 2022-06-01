@@ -70,50 +70,42 @@ int Graph2::dfs(int v) {
     return count;
 }
 
-int Graph2::dijkstra_distance(int a, int b) {
-    MaxHeap<int, int> pq{n, -1};
+int Graph2::maxFlow(int a, int b) {
+    MaxHeap <int> pq;
 
-    for (int i{1}; i <= n; ++i) {
-        pq.insert(i, -1);
-        nodes[i].dist = INT32_MAX;
+    for (auto node : nodes) {
+        node.parent = NULL;
+        node.flow = 0;
     }
 
-    pq.decreaseKey(a, 0);
-    nodes[a].dist = 0;
+    nodes[a].flow = INT32_MAX;
 
-    while (pq.getSize() > 0) {
-        auto p = pq.removeMinNode();
-        auto &n = nodes[p.key];
+    pq.push(nodes[a].flow, a);
 
-        if (p.key == b)
-            return p.value;
+    while (!pq.empty()) {
 
-        for (Edge e : nodes[p.key].adj) {
-            Node &o = nodes[e.dest];
-            int newdist = e.capacity + n.dist;
+        pair<int, int> mx = pq.top(); //mx_flow, index
+        pq.pop();
+        int mx_flow = mx.first;
+        int mx_index = mx.second;
 
-            if (o.dist > newdist) {
-                pq.decreaseKey(e.dest, newdist);
-                o.dist = newdist;
-                o.pred = p.key;
+        for (auto edge : nodes[mx_index].adj) {
+
+            if (min(mx_flow, edge.capacity) > nodes[mx_index].adj[edge.dest].capacity) {
+
+                edge.capacity = min(mx_flow, edge.capacity);
+                edge.parent = mx_index;
+                pq.push(edge.capacity, edge.dest);
             }
         }
     }
 
-    return -1;
-}
-
-list<int> Graph2::dijkstra_path(int a, int b) {
-    list<int> path{};
-
-    if (dijkstra_distance(a, b) >= 0) {
-        int n = b;
-        path.push_front(b);
-        while (n != a)
-            path.push_front(n = nodes[n].pred);
+    while (nodes[b].parent != NULL) {
+        cout << b << " - ";
+        b = nodes[b].parent;
     }
 
-    return path;
+    return -1;
 }
 
 int Graph2::edmondskarp(Graph2 g, int src, int dest) {
@@ -133,3 +125,7 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     return 0;
 }
 
+/*Olá meu lindo, hoje estou muito simpatica
+    e queria te agradecer por seres o meu sugar daddy
+    e por me emprestares sempre tudo
+    es muito boa pessoa, love u <3*/
