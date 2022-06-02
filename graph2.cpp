@@ -116,10 +116,10 @@ void Graph2::scenario2(int start, int end) {
         node.flow = 0;
         node.visited = false;
     }
-    int helper;
+
     vector<stack<int>> help;
     stack<int> aux;
-    printAllPaths(start, end, helper, help, aux);
+    printAllPaths(start, end, help, aux);
 
     cout << endl << "Possible paths: " << endl;
 
@@ -154,11 +154,10 @@ void Graph2::scenario2(int start, int end) {
     }
 }
 
-void Graph2::printAllPaths(int s, int d, int &helper, vector<stack<int>> &help, stack<int> &aux) {
+void Graph2::printAllPaths(int s, int d, vector<stack<int>> &help, stack<int> &aux) {
 
         nodes[s].visited = true;
         aux.push(s);
-        helper++;
 
         if (s == d) {
             help.push_back(aux);
@@ -168,15 +167,13 @@ void Graph2::printAllPaths(int s, int d, int &helper, vector<stack<int>> &help, 
         {
             // Recur for all the vertices adjacent to current vertex
             auto it = nodes[s].adj.begin();
-            while (it != nodes[s].adj.end()) {
-                if (!nodes[it->dest].visited) printAllPaths((*it).dest, d, helper, help, aux);
-                ++it;
+            for (auto edge : nodes[s].adj) {
+                if (!nodes[edge.dest].visited) printAllPaths(edge.dest, d, help, aux);
             }
 
         }
 
         // Remove current vertex from path[] and mark it as unvisited
-        helper--;
         nodes[s].visited = false;
 }
 

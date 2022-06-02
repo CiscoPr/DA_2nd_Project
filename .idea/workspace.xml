@@ -14,13 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80c9e607-9972-4c26-9889-0cf9ab6c46fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tests/in12.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filereader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/filereader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph2.h" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.h" afterDir="false" />
-    </list>
+    <list default="true" id="80c9e607-9972-4c26-9889-0cf9ab6c46fd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +102,9 @@
       <workItem from="1654087633388" duration="7836000" />
       <workItem from="1654101895462" duration="4530000" />
       <workItem from="1654164675119" duration="481000" />
-      <workItem from="1654173790897" duration="15067000" />
+      <workItem from="1654173790897" duration="15166000" />
+      <workItem from="1654203309131" duration="744000" />
+      <workItem from="1654210634222" duration="694000" />
     </task>
     <servers />
   </component>
@@ -125,5 +121,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/graph2.cpp</url>
+          <line>157</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

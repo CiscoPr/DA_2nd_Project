@@ -44,5 +44,5 @@ public:
     pair<bool, int> bfs(int src, int f);
     pair<int, int> maxFlow(int a, int b);
     void scenario2(int start, int end);
-    void printAllPaths(int s, int d, int &helper, vector<stack<int>> &help, stack<int> &aux);
+    void printAllPaths(int s, int d, vector<stack<int>> &help, stack<int> &aux);
 };
