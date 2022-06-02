@@ -15,32 +15,30 @@ void Graph2::addEdge_res(int src, int dest, int flux){
     nodes[src].adj.push_back({dest,flux});
 }
 
-pair<bool, int> Graph2::bfs(int s, int d, vector<int> &path){
-    if(s==d) return {true,nodes[s].flow};
+pair<bool, int> Graph2::bfs(int s, int d){
+    if(s==d) return {true,INT32_MAX};
 
     // initialize all nodes as unvisited
-    for(int i=1; i<=n; i++) nodes[i].visited = false ;
+    for(int i=1; i<=n; i++) {
+        nodes[i].visited = false ;
+        nodes[i].pred = 0;
+    }
     queue<int> q; // queue of unvisited nodes
     q.push(s);
 
     nodes[s].visited = true ;
     while (!q.empty ()) { // while there are still unprocessed nodes
-        int u = q.front (); q.pop (); // remove first element of q
-        path.push_back(u);
+        int u = q.front(); q.pop(); // remove first element of q
 
         for(auto e : nodes[u].adj) {
+            if (nodes[e.dest].visited) continue;
             int w = e.dest;
+
+            nodes[w].pred = u;
+            q.push(w);
+            nodes[w].visited = true;
             if(w == d){
-                path.push_back(w);
-                int mxFlow = INT32_MAX;
-                for (auto x : path) {
-                    mxFlow = min(mxFlow, nodes[x].flow);
-                }
-                return {true, mxFlow};
-            }
-            if (!nodes[w].visited) { // new node!
-                q.push(w);
-                nodes[w].visited = true ;
+                    return {true, nodes[w].flow};
             }
         }
     }
@@ -95,78 +93,91 @@ pair<int, int> Graph2::maxFlow(int a, int b) {
 }
 
 void Graph2::scenario2(int start, int end) {
-    vector<int> path;
-    int stops;
+    list<int> path;
     int maxStops = maxFlow(start, end).second;
 
     cout << endl;
-    int minFlow = bfs(start, end, path).second;
+    int minFlow = bfs(start, end).second;
+    int c = end;
+    path.push_front(c);
+    while (nodes[c].pred != 0) {
+        path.push_front(nodes[c].pred);
+        c = nodes[c].pred;
+    }
     cout << "The shortest path has: " << path.size() << " stops" <<  endl;
     for (auto x :  path) {
         cout << x << " ";
     }
     cout << endl;
 
-    MaxHeap <int> pq;
-
+    vector<stack<int>> paths;
     for (Node node : nodes) {
         node.pred = 0;
         node.flow = 0;
+        node.visited = false;
     }
+    int helper;
+    vector<stack<int>> help;
+    stack<int> aux;
+    printAllPaths(start, end, helper, help, aux);
 
-    nodes[start].flow = INT32_MAX;
+    cout << endl << "Possible paths: " << endl;
 
-    pq.push(nodes[start].flow, start);
-
-    while (!pq.empty()) {
-        stops = 1;
+    for (stack<int> a : help) {
         bool tester = false;
 
-        pair<int, int> mx = pq.top();
-        pq.pop();
-        int mx_flow = mx.first;
-        int mx_index = mx.second;
-
-        for (auto edge : nodes[mx_index].adj) {
-            int w = edge.dest;
-            if (min(nodes[mx_index].flow, edge.capacity) > nodes[w].flow) {
-
-                nodes[w].flow = min(mx_flow, edge.capacity);
-                nodes[w].pred = mx_index;
-                pq.push(nodes[w].flow, w);
-                stops++;
-                if (stops >= maxStops) {
-                    tester = true;
-                    break;
-                }
-                if (nodes[w].flow < minFlow) {
-                    tester = true;
-                    break;
-                }
-            }
+        if(a.size() >= maxStops) {
+            continue;
         }
-        if (!tester || nodes[end].flow == INT32_MAX) continue;
-
-        stack<int> nds;
-        stops = 1;
-        while (nodes[end].pred != 0) {
-            nds.push(end);
-            end = nodes[end].pred;
+        int stops = 0;
+        stack<int> auxi = stack<int>();
+        while (!a.empty()) {
+            int t = a.top();
+            if (nodes[t].flow <= minFlow) {
+                tester = true;
+                break;
+            }
+            a.pop();
+            auxi.push(t);
             stops++;
         }
+        if (tester) break;
 
-        cout << endl << "Possible paths:";
-
-        cout << endl << "Flow: "  << nodes[end].flow << endl;
+        cout << endl << "Flow: "  << nodes[auxi.top()].flow << endl;
         cout << "Stops: " << stops << endl;
-        cout << "Path: " << start << " ";
+        cout << "Path: ";
 
-        while (!nds.empty()) {
-            cout << nds.top() << " ";
-            nds.pop();
+        while (!auxi.empty()) {
+            cout << auxi.top() << " ";
+            auxi.pop();
         }
-        cout << endl;
     }
+}
+
+void Graph2::printAllPaths(int s, int d, int &helper, vector<stack<int>> &help, stack<int> &aux) {
+
+        nodes[s].visited = true;
+        aux.push(s);
+        helper++;
+
+        if (s == d) {
+            help.push_back(aux);
+            while (!aux.empty()) aux.pop();
+        }
+        else // If current vertex is not destination
+        {
+            // Recur for all the vertices adjacent to current vertex
+            auto it = nodes[s].adj.begin();
+            while (it != nodes[s].adj.end()) {
+                if (!nodes[it->dest].visited) printAllPaths((*it).dest, d, helper, help, aux);
+                ++it;
+            }
+
+        }
+
+        // Remove current vertex from path[] and mark it as unvisited
+        helper--;
+        nodes[s].visited = false;
 }
 
 int Graph2::edmondskarp(Graph2 g, int src, int dest) {

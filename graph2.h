@@ -41,7 +41,8 @@ public:
     int edmondskarp(Graph2 g, int src, int dest);
     // Add edge from source to destination with a certain weight
     void addEdge_res(int src, int dest, int flux);
-    pair<bool, int> bfs(int src, int f, vector<int> &path);
+    pair<bool, int> bfs(int src, int f);
     pair<int, int> maxFlow(int a, int b);
     void scenario2(int start, int end);
+    void printAllPaths(int s, int d, int &helper, vector<stack<int>> &help, stack<int> &aux);
 };
