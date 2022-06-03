@@ -94,10 +94,10 @@ pair<int, int> Graph2::maxFlow(int a, int b) {
 
 void Graph2::scenario2(int start, int end) {
     list<int> path;
-    int maxStops = maxFlow(start, end).second;
+    maxStops = maxFlow(start, end).second;
 
     cout << endl;
-    int minFlow = bfs(start, end).second;
+    minFlow = bfs(start, end).second;
     int c = end;
     path.push_front(c);
     while (nodes[c].pred != 0) {
@@ -110,71 +110,61 @@ void Graph2::scenario2(int start, int end) {
     }
     cout << endl;
 
-    vector<stack<int>> paths;
-    for (Node node : nodes) {
-        node.pred = 0;
-        node.flow = 0;
-        node.visited = false;
+    for (int i = 1; i <= n; i++) {
+        nodes[i].pred = 0;
+        nodes[i].visited = false;
+        nodes[i].flow = 0;
     }
+    nodes[start].flow = INT32_MAX;
 
-    vector<stack<int>> help;
-    stack<int> aux;
+    vector<queue<int>> help;
+    queue<int> aux;
     printAllPaths(start, end, help, aux);
 
     cout << endl << "Possible paths: " << endl;
 
-    for (stack<int> a : help) {
-        bool tester = false;
+    for (queue<int> a : help) {
 
-        if(a.size() >= maxStops) {
-            continue;
-        }
-        int stops = 0;
-        stack<int> auxi = stack<int>();
-        while (!a.empty()) {
-            int t = a.top();
-            if (nodes[t].flow <= minFlow) {
-                tester = true;
-                break;
-            }
-            a.pop();
-            auxi.push(t);
-            stops++;
-        }
-        if (tester) break;
-
-        cout << endl << "Flow: "  << nodes[auxi.top()].flow << endl;
-        cout << "Stops: " << stops << endl;
+        cout << endl << "Flow: "  << 0 << endl;
+        cout << "Stops: " << a.size() << endl;
         cout << "Path: ";
 
-        while (!auxi.empty()) {
-            cout << auxi.top() << " ";
-            auxi.pop();
+        while (!a.empty()) {
+            cout << a.front() << " ";
+            a.pop();
         }
     }
 }
 
-void Graph2::printAllPaths(int s, int d, vector<stack<int>> &help, stack<int> &aux) {
+void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux) {
 
-        nodes[s].visited = true;
-        aux.push(s);
+    if(aux.size() >= maxStops) return;
+    if (nodes[s].flow <= minFlow) return;
 
-        if (s == d) {
-            help.push_back(aux);
-            while (!aux.empty()) aux.pop();
-        }
-        else // If current vertex is not destination
-        {
-            // Recur for all the vertices adjacent to current vertex
-            auto it = nodes[s].adj.begin();
-            for (auto edge : nodes[s].adj) {
-                if (!nodes[edge.dest].visited) printAllPaths(edge.dest, d, help, aux);
+    nodes[s].visited = true;
+    aux.push(s);
+
+    if (s == d) {
+        help.push_back(aux);
+    }
+    else // If current vertex is not destination
+    {
+        // Recur for all the vertices adjacent to current vertex
+        for (auto edge : nodes[s].adj) {
+            if (!nodes[edge.dest].visited) {
+                if (min(nodes[s].flow, edge.capacity) > nodes[edge.dest].flow) {
+
+                    nodes[edge.dest].flow = min(nodes[s].flow, edge.capacity);
+                    nodes[edge.dest].pred = s;
+                }
+                printAllPaths(edge.dest, d, help, aux);
             }
-
         }
 
-        // Remove current vertex from path[] and mark it as unvisited
-        nodes[s].visited = false;
+    }
+
+    // Remove current vertex from path[] and mark it as unvisited
+    nodes[s].visited = false;
 }
 
 int Graph2::edmondskarp(Graph2 g, int src, int dest) {

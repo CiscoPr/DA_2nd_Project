@@ -30,7 +30,8 @@ class Graph2 {
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
 
-
+    int maxStops;
+    int minFlow;
 
 public:
     // Constructor: nr nodes and direction (default: undirected)
@@ -44,5 +45,5 @@ public:
     pair<bool, int> bfs(int src, int f);
     pair<int, int> maxFlow(int a, int b);
     void scenario2(int start, int end);
-    void printAllPaths(int s, int d, vector<stack<int>> &help, stack<int> &aux);
+    void printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux);
 };
