@@ -46,4 +46,10 @@ public:
     pair<int, int> maxFlow(int a, int b);
     void scenario2(int start, int end);
     void printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux);
+
+    void ex23(int start, int end);
+
+    Graph2 create_residual(Graph2 g);
+
+    bool bfs_with_path(int s, int d, vector<int> path);
 };

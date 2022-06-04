@@ -9,12 +9,12 @@ void Graph2::addEdge(int src, int dest, int capacity, int duration) {
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
     if (!hasDir) nodes[dest].adj.push_back({ src, capacity, duration});
 }
-
+/*
 void Graph2::addEdge_res(int src, int dest, int flux){
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest,flux});
 }
-
+*/
 pair<bool, int> Graph2::bfs(int s, int d){
     if(s==d) return {true,INT32_MAX};
 
@@ -44,6 +44,37 @@ pair<bool, int> Graph2::bfs(int s, int d){
     }
     return {false, 0};
 }
+
+bool Graph2::bfs_with_path(int s, int d, vector<int> path){
+    if(s==d) return true;
+
+    // initialize all nodes as unvisited
+    for(int i=1; i<=n; i++) {
+        nodes[i].visited = false ;
+        nodes[i].pred = 0;
+    }
+    queue<int> q; // queue of unvisited nodes
+    q.push(s);
+
+    nodes[s].visited = true ;
+    while (!q.empty ()) { // while there are still unprocessed nodes
+        int u = q.front(); q.pop(); // remove first element of q
+
+        for(auto e : nodes[u].adj) {
+            if (nodes[e.dest].visited) continue;
+            int w = e.dest;
+
+            nodes[w].pred = u;
+            q.push(w);
+            nodes[w].visited = true;
+            if(w == d){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 
 pair<int, int> Graph2::maxFlow(int a, int b) {
     MaxHeap <int> pq;
@@ -102,6 +133,7 @@ void Graph2::scenario2(int start, int end) {
     while (nodes[c].pred != 0) {
         path.push_front(nodes[c].pred);
         c = nodes[c].pred;
+
     }
     cout << "The shortest path has: " << path.size() << " stops" <<  endl;
     cout << endl;
@@ -134,7 +166,29 @@ void Graph2::scenario2(int start, int end) {
         }
     }*/
 }
+/*
+void Graph2::ex23(int start, int end) {
+    list<int> path;
+    maxStops = maxFlow(start, end).second;
 
+    cout << endl;
+    minFlow = bfs(start, end).second;
+    int c = end;
+    path.push_front(c);
+    while (nodes[c].pred != 0) {
+        path.push_front(nodes[c].pred);
+        c = nodes[c].pred;
+
+    }
+    cout << "The path is: ";
+    for(auto i: path){
+        if(i!= end)
+            cout << i << " -> ";
+        else
+            cout <<i;
+    }
+}
+*/
 void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux) {
 
     if(aux.size() >= maxStops) return;
@@ -166,19 +220,20 @@ void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> au
     nodes[s].visited = false;
 }
 
-int Graph2::edmondskarp(Graph2 g, int src, int dest) {
+
+int Graph2::edmondskarp(Graph2 rg, int src, int dest) {
     int max_group = 0;
-    int flow = 0;
-    int initial_node = 1;
-    vector<int> path;
-    Graph2 residual_graph(n, true);
-    residual_graph = g;
-    //create the residual graph
-    for(int i = 1; i <= n; i++){
-        for(auto e: nodes[i].adj){
+    int capacity = 0;
+    int flow = INT32_MAX;
+    while(bfs(src, dest).first == true){
+        for(auto e: nodes[src].adj){
             int w = e.dest;
-            residual_graph.addEdge_res(w, i, flow);
+            if(w == dest)
+                capacity = e.capacity;
         }
+        flow = min(flow, capacity);
+
+
     }
     return 0;
 }

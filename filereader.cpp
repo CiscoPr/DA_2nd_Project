@@ -5,7 +5,7 @@
 
 filereader::filereader() = default;
 
-Graph2 filereader::load_database(const std::string& filename) {
+pair<Graph2, Graph2> filereader::load_database(const std::string& filename) {
 
     std::ifstream database;
     database.open(filename);
@@ -21,6 +21,7 @@ Graph2 filereader::load_database(const std::string& filename) {
         int nodes_integer = stoi(nodes);
         std::cout << "\nIt has " << edges_integer << " edges and " << nodes_integer << " nodes\n";
         Graph2 graph(nodes_integer, true);
+        Graph2 residual_graph(nodes_integer, true);
         while(edges_integer!= 0){
             getline(database, initial_node, ' ');
             getline(database, dest_node, ' ');
@@ -31,11 +32,13 @@ Graph2 filereader::load_database(const std::string& filename) {
             int cap = stoi(capacity);
             int dur = stoi(duration);
             graph.addEdge(src, dest, cap, dur);
+            residual_graph.addEdge(src, dest, cap, dur);
+            residual_graph.addEdge(dest, src, 0, dur);
             edges_integer --;
         }
         database.close();
 
-        return graph;
+        return {graph, residual_graph};
     }
 }
 

@@ -8,6 +8,8 @@ Menu::Menu() = default;
 void Menu::start() {
 
     Graph2 g(0, true);
+
+    Graph2 residual(0, true);
     unsigned short answer;
     bool error = true;
     int dataset_number;
@@ -19,7 +21,11 @@ void Menu::start() {
              "|           Trips           |" << endl <<
              "|1.1:                    1  |" << endl <<
              "|1.2:                    2  |" << endl <<
-             "|Separate groups:        3  |" << endl <<
+             "|2.1                     3  |" << endl <<
+             "|2.2                     4  |" << endl <<
+             "|2.3                     5  |" << endl <<
+             "|2.4                     6  |" << endl <<
+             "|2.5                     7  |" << endl <<
              "|Exit:                   0  |" << endl <<
              "-----------------------------" << endl;
         cin >> answer;
@@ -52,19 +58,35 @@ void Menu::start() {
                 break;
             }
             case 3: {
-                cout << "Please input the number of the dataset you wish to load: ";
-                cin.clear();
-                cin >> dataset_number;
-                if(dataset_number < 10)
-                    dataset_file = "../Tests/in0" + std::to_string(dataset_number) +".txt";
-                else
-                    dataset_file = "../Tests/in" + std::to_string(dataset_number) +".txt";
-                g = file.load_database(dataset_file);
-                std::cout << "Dataset loaded successfully!\n";
+                int d;
+                interfaceNodes(g, file, dataset_number, dataset_file);
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+                cout << "Please input the dimension of the group: ";
+                cin >> d;
+
                 error = false;
                 break;
             }
+            case 4: {
+                int d, inc;
+                interfaceNodes(g, file, dataset_number, dataset_file);
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+                cout << "Please input the dimension of the group you used on 2.1: ";
+                cin >> d;
 
+
+                error = false;
+                break;
+            }
+            case 5: {
+                interfaceNodes_scen2(residual, file, dataset_number, dataset_file);
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+
+
+                error = false;
+                break;
+            }
             case 0:
                 exit(0);
             default:
@@ -82,6 +104,21 @@ void Menu::interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, stri
         dataset_file = "../Tests/in0" + to_string(dataset_number) +".txt";
     else
         dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
-    g = file.load_database(dataset_file);
+    g = file.load_database(dataset_file).first;
+
+    cout << "Dataset loaded successfully!\n" << endl;
+}
+
+void Menu::interfaceNodes_scen2(Graph2 &g, filereader &file, int &dataset_number, string &dataset_file) {
+    cout << "Please input the number of the dataset you wish to load: ";
+    cin.clear();
+    cin >> dataset_number;
+
+    if(dataset_number < 10)
+        dataset_file = "../Tests/in0" + to_string(dataset_number) +".txt";
+    else
+        dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
+    g = file.load_database(dataset_file).second;
+
     cout << "Dataset loaded successfully!\n" << endl;
 }
