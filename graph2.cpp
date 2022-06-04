@@ -77,17 +77,16 @@ pair<int, int> Graph2::maxFlow(int a, int b) {
     cout << "The maximum flow is: "  << nodes[b].flow << endl;
     stack<int> nds;
     int stops = 1;
-    cout << a << " ";
     while (nodes[b].pred != 0) {
         nds.push(b);
         b = nodes[b].pred;
         stops++;
     }
+    /*cout << a << " ";
     while (!nds.empty()) {
         cout << nds.top() << " ";
         nds.pop();
-    }
-    cout << endl;
+    }*/
 
     return {nodes[b].flow, stops};
 }
@@ -105,12 +104,12 @@ void Graph2::scenario2(int start, int end) {
         c = nodes[c].pred;
     }
     cout << "The shortest path has: " << path.size() << " stops" <<  endl;
-    for (auto x :  path) {
-        cout << x << " ";
-    }
     cout << endl;
 
-    for (int i = 1; i <= n; i++) {
+    cout << "The minimum flow worth considering is: " << minFlow << endl
+    << "The maximum number of stops worth considering is: " << maxStops << endl;
+
+    /*for (int i = 1; i <= n; i++) {
         nodes[i].pred = 0;
         nodes[i].visited = false;
         nodes[i].flow = 0;
@@ -133,7 +132,7 @@ void Graph2::scenario2(int start, int end) {
             cout << a.front() << " ";
             a.pop();
         }
-    }
+    }*/
 }
 
 void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux) {
