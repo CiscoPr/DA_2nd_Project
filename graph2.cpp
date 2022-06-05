@@ -3,16 +3,18 @@
 Graph2::Graph2(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {
 }
 
-void Graph2::addEdge(int src, int dest, int capacity, int duration) {
+void Graph2::addEdge(int src, int dest, int capacity, int duration, bool isResid) {
     if (src<1 || src>n || dest<1 || dest>n) return;
-    nodes[src].adj.push_back({dest, capacity, duration});
+    nodes[src].adj.push_back({dest, capacity, duration, isResid});
     //nodes[dest].adj.push_back({-flux, src, capacity, duration});
-    if (!hasDir) nodes[dest].adj.push_back({ src, capacity, duration});
+    if (!hasDir) nodes[dest].adj.push_back({ src, capacity, duration, isResid});
 }
 /*
-void Graph2::addEdge_res(int src, int dest, int flux){
+void Graph2::addEdge_res(int src, int dest, int flux, int duration,  bool isResid){
     if (src<1 || src>n || dest<1 || dest>n) return;
-    nodes[src].adj.push_back({dest,flux});
+    nodes[src].adj.push_back({dest, flux, duration, true});
+    //nodes[dest].adj.push_back({-flux, src, capacity, duration});
+    if (!hasDir) nodes[dest].adj.push_back({ src, flux, duration, true});
 }
 */
 pair<bool, int> Graph2::bfs(int s, int d){
@@ -38,42 +40,15 @@ pair<bool, int> Graph2::bfs(int s, int d){
             q.push(w);
             nodes[w].visited = true;
             if(w == d){
-                    return {true, nodes[w].flow};
+                return {true, nodes[w].flow};
             }
         }
     }
     return {false, 0};
 }
 
-bool Graph2::bfs_with_path(int s, int d, vector<int> path){
-    if(s==d) return true;
 
-    // initialize all nodes as unvisited
-    for(int i=1; i<=n; i++) {
-        nodes[i].visited = false ;
-        nodes[i].pred = 0;
-    }
-    queue<int> q; // queue of unvisited nodes
-    q.push(s);
 
-    nodes[s].visited = true ;
-    while (!q.empty ()) { // while there are still unprocessed nodes
-        int u = q.front(); q.pop(); // remove first element of q
-
-        for(auto e : nodes[u].adj) {
-            if (nodes[e.dest].visited) continue;
-            int w = e.dest;
-
-            nodes[w].pred = u;
-            q.push(w);
-            nodes[w].visited = true;
-            if(w == d){
-                return true;
-            }
-        }
-    }
-    return false;
-}
 
 
 pair<int, int> Graph2::maxFlow(int a, int b) {
@@ -219,21 +194,101 @@ void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> au
     // Remove current vertex from path[] and mark it as unvisited
     nodes[s].visited = false;
 }
+pair<bool, vector<int>> Graph2::bfs_with_path(int s, int d){
+    vector<int> path;
+    if(s==d) return {true, path};
 
+    // initialize all nodes as unvisited
+    for(int i=1; i<=n; i++) {
+        nodes[i].visited = false;
+        nodes[i].pred = 0;
+    } ;
+    queue<int> q; // queue of unvisited nodes
+    q.push(s);
+
+    nodes[s].visited = true ;
+    while (!q.empty ()) { // while there are still unprocessed nodes
+        int u = q.front(); q.pop(); // remove first element of q
+        path.push_back(u);
+        for(auto e : nodes[u].adj) {
+            if(!nodes[e.dest].visited && e.capacity >0){
+                int w = e.dest;
+                if(w == d){
+                    path.push_back(w);
+                    return {true, path};
+                }
+                if(!nodes[w].visited && e.capacity > 0){
+                    nodes[w].pred = u;
+                    q.push(w);
+                    nodes[w].visited = true;
+                }
+
+            }
+
+        }
+    }
+
+    return {false, path};
+}
 
 int Graph2::edmondskarp(Graph2 rg, int src, int dest) {
     int max_group = 0;
     int capacity = 0;
     int flow = INT32_MAX;
-    while(bfs(src, dest).first == true){
+
+    while(bfs_with_path(src, dest).first == true){
+/*
         for(auto e: nodes[src].adj){
             int w = e.dest;
             if(w == dest)
                 capacity = e.capacity;
         }
-        flow = min(flow, capacity);
+*/
+        vector<int> path = bfs_with_path(src, dest).second;
+        for(int i = 0; i < path.size(); i++){
+            int node = path[i];
+
+            for(auto e:nodes[node].adj){
+                int w = e.dest;
+                for(auto it: path)
+                    if(w == it){
+                        capacity = e.capacity;
+                        flow = min(flow, capacity);
+                 }
+            }
 
 
+        }
+
+        for(int i = 0; i < path.size(); i++){
+            int node = path[i];
+            //loop to find the connection
+            for(auto e:nodes[node].adj){
+                int w = e.dest;
+                for(auto it:path){
+                    if(w == it)
+                        rg.addEdge(w, node, 0, e.duration, true);
+                    }
+                }
+        }
+
+        for(int i = 0; i < path.size(); i++){
+            int node = path[i];
+            for(auto e:nodes[node].adj){
+                if(e.isResid == false) {
+                    e.capacity -= flow;
+
+
+
+                }
+                else if (e.isResid == true)
+                    e.capacity += flow;
+            }
+        }
+
+
+        max_group += flow;
     }
-    return 0;
+    cout << "\n\n\n"<<max_group<<"\n\n\n";
+    return max_group;
 }

@@ -31,9 +31,9 @@ pair<Graph2, Graph2> filereader::load_database(const std::string& filename) {
             int dest = stoi(dest_node);
             int cap = stoi(capacity);
             int dur = stoi(duration);
-            graph.addEdge(src, dest, cap, dur);
-            residual_graph.addEdge(src, dest, cap, dur);
-            residual_graph.addEdge(dest, src, 0, dur);
+            graph.addEdge(src, dest, cap, dur, false);
+            //residual_graph.addEdge(src, dest, cap, dur);
+            //residual_graph.addEdge(dest, src, 0, dur);
             edges_integer --;
         }
         database.close();

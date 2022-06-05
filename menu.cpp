@@ -79,10 +79,11 @@ void Menu::start() {
                 break;
             }
             case 5: {
-                interfaceNodes_scen2(residual, file, dataset_number, dataset_file);
+                interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
 
+                g.edmondskarp(g, p1.first, p1.second);
 
                 error = false;
                 break;
@@ -105,20 +106,6 @@ void Menu::interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, stri
     else
         dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
     g = file.load_database(dataset_file).first;
-
-    cout << "Dataset loaded successfully!\n" << endl;
-}
-
-void Menu::interfaceNodes_scen2(Graph2 &g, filereader &file, int &dataset_number, string &dataset_file) {
-    cout << "Please input the number of the dataset you wish to load: ";
-    cin.clear();
-    cin >> dataset_number;
-
-    if(dataset_number < 10)
-        dataset_file = "../Tests/in0" + to_string(dataset_number) +".txt";
-    else
-        dataset_file = "../Tests/in" + to_string(dataset_number) +".txt";
-    g = file.load_database(dataset_file).second;
 
     cout << "Dataset loaded successfully!\n" << endl;
 }
