@@ -83,5 +83,10 @@ public:
      */
     void scenario2(int start, int end);
     void printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux);
+    /**
+     * create the residual graph of graph g
+     * @param g
+     * @return
+     */
     vector<vector<pair<int,int>>> createResidualGraph(Graph2 g);
 };

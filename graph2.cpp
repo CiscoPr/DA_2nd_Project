@@ -10,10 +10,6 @@ void Graph2::addEdge(int src, int dest, int capacity, int duration) {
     if (!hasDir) nodes[dest].adj.push_back({ src, capacity, duration});
 }
 
-void Graph2::addEdge_res(int src, int dest, int flux){
-    if (src<1 || src>n || dest<1 || dest>n) return;
-    nodes[src].adj.push_back({dest,flux});
-}
 
 pair<bool, int> Graph2::bfs(int s, int d){
     if(s==d) return {true,INT32_MAX};
@@ -175,10 +171,34 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     residual_graph = g;
     //create the residual graph
     for(int i = 1; i <= n; i++){
-        for(auto e: nodes[i].adj){
-            int w = e.dest;
-            residual_graph.addEdge_res(w, i, flow);
-        }
+
     }
     return 0;
+}
+
+vector<vector<pair<int, int>>> Graph2::createResidualGraph(Graph2 g) {
+    vector<vector<pair<int, int>>> residual_graph;
+    vector<pair<int, int>> edges;
+    for(int i = 0; i <= n; i++){
+        residual_graph.push_back(edges);
+    }
+    int i=0;
+    while(i <= n){
+        for(int it = 0; it <= n; it++){
+            residual_graph[i].push_back({0,0});
+        }
+        i++;
+    }
+
+    int j = 1;
+    while(j <= n){
+        for(auto e: nodes[j].adj){
+            int w = e.dest;
+            int c = e.capacity;
+            int d = e.duration;
+            residual_graph[j][w] = {c, d};
+        }
+        j++;
+    }
+    return residual_graph;
 }
