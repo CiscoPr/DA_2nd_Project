@@ -11,7 +11,7 @@ Graph2 filereader::load_database(const std::string& filename) {
     database.open(filename);
     if(!database.is_open()){
         std::cout << "\nCould not find that dataset. Please try again!\n";
-        exit(0);        //should we keep this or change to a call to the menu start func?
+        exit(0);
 
     }else{
         std::string nodes, edges, initial_node, dest_node, capacity, duration;
@@ -41,7 +41,6 @@ Graph2 filereader::load_database(const std::string& filename) {
 
 pair<int, int> filereader::chooseNodes(Graph2 graph, int choice) {
     int s, d, number_of_people;
-    vector<int> path;
 
     do {
         std::cout << "Please enter your initial node: ";
@@ -49,10 +48,9 @@ pair<int, int> filereader::chooseNodes(Graph2 graph, int choice) {
         std::cout << "Please enter your final node: ";
         std::cin >> d;
 
-
-        if (graph.bfs(s, d, path).first) {
-
+        if (graph.bfs(s, d).first) {
             std::cout << "\nIt's reachable\n";
+
             if (choice != 1) {
                 std::cout << "Please insert the number of people of the group: ";
                 std::cin >> number_of_people;
@@ -60,7 +58,9 @@ pair<int, int> filereader::chooseNodes(Graph2 graph, int choice) {
         } else {
             std::cout << "\nit's not reachable\n";
         }
-    } while (!graph.bfs(s, d, path).first);
+    } while (!graph.bfs(s, d).first);
+
+    cout << endl;
 
     return {s, d};
 }

@@ -20,6 +20,12 @@ public:
      * Starts user interface
      */
     static void start();
-
+    /**
+     * Loads the correct dataset
+     * @param g
+     * @param file
+     * @param dataset_number
+     * @param dataset_file
+     */
     static void interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, string &dataset_file);
 };
