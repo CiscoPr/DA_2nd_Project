@@ -82,11 +82,11 @@ pair<int, int> Graph2::maxFlow(int a, int b) {
         b = nodes[b].pred;
         stops++;
     }
-    /*cout << a << " ";
+    cout << a << " ";
     while (!nds.empty()) {
         cout << nds.top() << " ";
         nds.pop();
-    }*/
+    }
 
     return {nodes[b].flow, stops};
 }
