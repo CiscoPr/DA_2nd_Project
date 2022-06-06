@@ -54,27 +54,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/francisco/DA_2nd_Project",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/francisco/DA_2nd_Project&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.DA_2nd_Project">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DA_2nd_Project (1)" type="CMakeRunConfiguration" factoryName="Application" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="DA_2nd_Project" TARGET_NAME="DA_2nd_Project" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="DA_2nd_Project" RUN_TARGET_NAME="DA_2nd_Project">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -130,6 +125,7 @@
       <workItem from="1654266959885" duration="6122000" />
       <workItem from="1654341859425" duration="532000" />
       <workItem from="1654405365691" duration="1000" />
+      <workItem from="1654541752977" duration="3770000" />
     </task>
     <servers />
   </component>
@@ -146,16 +142,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/graph2.cpp</url>
-          <line>392</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

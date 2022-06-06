@@ -89,14 +89,55 @@ public:
      * @return
      */
     vector<vector<pair<int,int>>> createResidualGraph(Graph2 g);
-
+    /**
+     * BFS algorithm adapted for the obtained residual graph
+     * @param src
+     * @param dest
+     * @param resid
+     * @return
+     */
     bool bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>> resid);
 
+    /**
+     * creates a flux graph
+     * @param rGraph
+     * @return
+     */
     vector<vector<vector<int>>> create_Flux_graph(vector<vector<pair<int, int>>> rGraph);
 
-    int random_dimension_divided_groups(Graph2 g, int src, int dest, int dimension);
+    /**
+     * the function used to determine a path for the user input group
+     * @param g
+     * @param src
+     * @param dest
+     * @param dimension
+     * @return
+     */
+    vector<vector<int>> random_dimension_divided_groups(Graph2 g, int src, int dest, int dimension);
 
+    /**
+     * calculates de max flow for scenario 2
+     * @param g
+     * @param src
+     * @param dest
+     * @return
+     */
     int max_flow_separated_groups(Graph2 g, int src, int dest);
 
+    /**
+     * used for 2.4, equivalent to max capacity path time
+     * @param g
+     * @param a
+     * @param b
+     * @return
+     */
     int minimum_time(Graph2 g, int a, int b);
+
+    /**
+     * used to compute the max wait time of the path
+     * and shows the nodes with that time
+     * @param p
+     * @return
+     */
+    int maximum_wait_time(Graph2 g, vector<vector<int>> p);
 };

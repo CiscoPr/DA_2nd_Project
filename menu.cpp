@@ -99,11 +99,16 @@ void Menu::start() {
                 break;
             }
             case 7: {
+                int dim;
                 interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
 
-                //g.edmondskarp(g, p1.first, p1.second);
+                cout << "Please input a dimension for a group: ";
+                cin >> dim;
+                vector<vector<int>> path;
+                path = g.random_dimension_divided_groups(g, p1.first, p1.second, dim);
+                g.maximum_wait_time(g, path);
                 error = false;
                 break;
             }
