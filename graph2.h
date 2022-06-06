@@ -17,9 +17,6 @@ class Graph2 {
 
         int capacity; // An integer weight
         int duration;
-        bool isResid;
-
-
     };
 
     struct Node {
@@ -39,22 +36,14 @@ class Graph2 {
 public:
     // Constructor: nr nodes and direction (default: undirected)
     explicit Graph2(int nodes, bool dir = true);
-
-
     // Add edge from source to destination with a certain weight
-    void addEdge(int src, int dest, int capacity, int duration, bool isResid);
+    void addEdge(int src, int dest, int capacity, int duration);
     //applies the Ford-Fulkerson method
     int edmondskarp(Graph2 g, int src, int dest);
     // Add edge from source to destination with a certain weight
-    void addEdge_res(int src, int dest, int flux, bool isResidual);
+    void addEdge_res(int src, int dest, int flux);
     pair<bool, int> bfs(int src, int f);
     pair<int, int> maxFlow(int a, int b);
     void scenario2(int start, int end);
     void printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux);
-
-    void ex23(int start, int end);
-
-    Graph2 create_residual(Graph2 g);
-
-    pair<bool, vector<int>> bfs_with_path(int s, int d);
 };
