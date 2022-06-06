@@ -242,7 +242,17 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     }
     cout << "\nO fluxo máximo deste grafo é de: " << max_flow;
     vector<vector<vector<int>>> flow_graph = create_Flux_graph(rGraph);
-    cout << "A possible path is: ";
+    cout << "Um encaminhamento possível é: \n";
+    for(int i = 0; i <= n; i++){
+        for(int j = 0; j <= n; j++){
+            if(flow_graph[i][j][2] <= 0 ) continue;
+            else{
+                cout << "Do nó " << i << " para o nó " << j << " movem-se " << flow_graph[i][j][2] << " pessoas. \n";
+            }
+
+        }
+    }
+
 
     return max_flow;
 }
