@@ -89,4 +89,6 @@ public:
      * @return
      */
     vector<vector<pair<int,int>>> createResidualGraph(Graph2 g);
+
+    bool bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>> resid);
 };

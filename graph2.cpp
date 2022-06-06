@@ -162,19 +162,6 @@ void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> au
     nodes[s].visited = false;
 }
 
-int Graph2::edmondskarp(Graph2 g, int src, int dest) {
-    int max_group = 0;
-    int flow = 0;
-    int initial_node = 1;
-    vector<int> path;
-    Graph2 residual_graph(n, true);
-    residual_graph = g;
-    //create the residual graph
-    for(int i = 1; i <= n; i++){
-
-    }
-    return 0;
-}
 
 vector<vector<pair<int, int>>> Graph2::createResidualGraph(Graph2 g) {
     vector<vector<pair<int, int>>> residual_graph;
@@ -201,4 +188,58 @@ vector<vector<pair<int, int>>> Graph2::createResidualGraph(Graph2 g) {
         j++;
     }
     return residual_graph;
+}
+
+
+bool Graph2::bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>> resid){
+    // initialize all nodes as unvisited
+    for(int v=1; v<=n; v++){
+        nodes[v]. visited = false;
+        nodes[v].pred = NULL;
+    }
+    queue<int> q; // queue of unvisited nodes
+    q.push(src);
+    nodes[src]. visited = true ;
+    while(!q.empty ()) { // while there are still unprocessed nodes
+        int u = q.front (); q.pop (); // remove first element of q
+        cout << u << " "; // show node order
+        for (auto e : nodes[u]. adj) {
+            int w = e.dest;
+            if ((!nodes[w]. visited) && (resid[u][w].first > 0)) { // new node!
+                if(w == dest){
+                    cout << w << " ";
+                    nodes[w]. visited = true ;
+                    nodes[w].pred = u;
+                    return true;
+
+                }
+                q.push(w);
+                nodes[w]. visited = true ;
+                nodes[w].pred = u;
+            }
+        }
+    }
+    return false;
+}
+
+
+int Graph2::edmondskarp(Graph2 g, int src, int dest) {
+    int u, v;
+    vector<vector<pair<int, int>>> rGraph = createResidualGraph(g);
+    int max_flow = 0;
+    while(bfs_for_scenario2(src, dest, rGraph)){
+        int flow = INT32_MAX;
+        for(v = dest; v != src; v = nodes[v].pred){
+            u = nodes[v].pred;
+            flow = min(flow, rGraph[u][v].first);
+        }
+        for(v = dest; v != src; v = nodes[v].pred){
+            u = nodes[v].pred;
+            rGraph[u][v].first -= flow;
+            rGraph[v][u].first += flow;
+        }
+        max_flow += flow;
+    }
+    cout << "\nO fluxo máximo deste grafo é de: " << max_flow;
+    return max_flow;
 }

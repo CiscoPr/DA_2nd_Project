@@ -19,7 +19,11 @@ void Menu::start() {
              "|           Trips           |" << endl <<
              "|1.1:                    1  |" << endl <<
              "|1.2:                    2  |" << endl <<
-             "|Separate groups:        3  |" << endl <<
+             "|2.1                     3  |" << endl <<
+             "|2.2                     4  |" << endl <<
+             "|2.3                     5  |" << endl <<
+             "|2.4                     6  |" << endl <<
+             "|2.5                     7  |" << endl <<
              "|Exit:                   0  |" << endl <<
              "-----------------------------" << endl;
         cin >> answer;
@@ -56,7 +60,43 @@ void Menu::start() {
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
 
-                g.createResidualGraph(g);
+                //g.edmondskarp(g, p1.first, p1.second);
+                error = false;
+                break;
+            }
+            case 4: {
+                interfaceNodes(g, file, dataset_number, dataset_file);
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+
+                //g.edmondskarp(g, p1.first, p1.second);
+                error = false;
+                break;
+            }
+            case 5: {
+                interfaceNodes(g, file, dataset_number, dataset_file);
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+
+                g.edmondskarp(g, p1.first, p1.second);
+                error = false;
+                break;
+            }
+            case 6: {
+                interfaceNodes(g, file, dataset_number, dataset_file);
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+
+                //g.edmondskarp(g, p1.first, p1.second);
+                error = false;
+                break;
+            }
+            case 7: {
+                interfaceNodes(g, file, dataset_number, dataset_file);
+
+                pair <int, int> p1 = file.chooseNodes(g, 1);
+
+                //g.edmondskarp(g, p1.first, p1.second);
                 error = false;
                 break;
             }
