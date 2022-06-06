@@ -10,8 +10,14 @@
 
 using namespace std;
 
+/**
+ * Class of the used graph
+ */
 class Graph2 {
 
+    /**
+     * Struct of graph's edges
+     */
     struct Edge {
 
         int dest;   // Destination node
@@ -20,6 +26,9 @@ class Graph2 {
         int duration;
     };
 
+    /**
+     * Struct of graph's nodes
+     */
     struct Node {
         vector<Edge> adj; // The list of outgoing edges (to adjacent nodes)
         int pred;
@@ -64,15 +73,15 @@ public:
     //void addEdge_res(int src, int dest, int flux);
     /**
      * Applies the Breadth-First Search strategy to the graph
-     * @param src
-     * @param f
-     * @return
+     * @param src start
+     * @param f end
+     * @return boolean depending on if it was successful and int with capacity of path
      */
     pair<bool, int> bfs(int src, int f);
     /**
-     * Determines the maximum flow on scenario 1
-     * @param a
-     * @param b
+     * Determines the maximum capacity on scenario 1
+     * @param a start
+     * @param b end
      * @return
      */
     pair<int, int> maxFlow(int a, int b);
