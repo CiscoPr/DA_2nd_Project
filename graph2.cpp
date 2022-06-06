@@ -347,3 +347,54 @@ int Graph2::random_dimension_divided_groups(Graph2 g, int src, int dest, int dim
 
     return max_flow;
 }
+
+
+int Graph2::minimum_time(Graph2 g, int a, int b) {
+    MaxHeap <int> pq;
+    int minimum_time = 0;
+    for (Node node : nodes) {
+        node.pred = 0;
+        node.flow = 0;
+    }
+
+    nodes[a].flow = INT32_MAX;
+
+    pq.push(nodes[a].flow, a);
+
+    while (!pq.empty()) {
+
+        pair<int, int> mx = pq.top();
+        pq.pop();
+        int mx_flow = mx.first;
+        int mx_index = mx.second;
+
+        for (auto edge : nodes[mx_index].adj) {
+            int w = edge.dest;
+            if (min(nodes[mx_index].flow, edge.capacity) > nodes[w].flow) {
+
+                nodes[w].flow = min(mx_flow, edge.capacity);
+                nodes[w].pred = mx_index;
+                pq.push(nodes[w].flow, w);
+            }
+        }
+    }
+    //cout << "The maximum flow is: "  << nodes[b].flow << endl;
+    vector<int> nds;
+    int stops = 1;
+    while (nodes[b].pred != 0) {
+        nds.push_back(b);
+        b = nodes[b].pred;
+        stops++;
+    }
+
+    vector<vector<pair<int, int>>>rgraph = createResidualGraph(g);
+    vector<vector<vector<int>>> flow_graph = create_Flux_graph(rgraph);
+    minimum_time += flow_graph[a][nds[nds.size()-1]][1];
+    for(int i = nds.size()-1; i >= 0; i--){
+        for(int j = i-1; j >= 0; j--)
+            minimum_time += flow_graph[nds[i]][nds[j]][1];
+    }
+
+    cout << "The minimum time of this path is: " << minimum_time;
+    return minimum_time;
+}

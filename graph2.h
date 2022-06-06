@@ -97,4 +97,6 @@ public:
     int random_dimension_divided_groups(Graph2 g, int src, int dest, int dimension);
 
     int max_flow_separated_groups(Graph2 g, int src, int dest);
+
+    int minimum_time(Graph2 g, int a, int b);
 };

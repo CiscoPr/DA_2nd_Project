@@ -94,7 +94,7 @@ void Menu::start() {
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
 
-                //g.edmondskarp(g, p1.first, p1.second);
+                g.minimum_time(g, p1.first, p1.second);
                 error = false;
                 break;
             }
@@ -128,3 +128,6 @@ void Menu::interfaceNodes(Graph2 &g, filereader &file, int &dataset_number, stri
     g = file.load_database(dataset_file);
     cout << "Dataset loaded successfully!\n" << endl;
 }
+
+
+
