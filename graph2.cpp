@@ -222,6 +222,25 @@ bool Graph2::bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>>
     return false;
 }
 
+int Graph2::max_flow_separated_groups(Graph2 g, int src, int dest) {
+    int u, v;
+    vector<vector<pair<int, int>>> rGraph = createResidualGraph(g);
+    int max_flow = 0;
+    while(bfs_for_scenario2(src, dest, rGraph)){
+        int flow = INT32_MAX;
+        for(v = dest; v != src; v = nodes[v].pred){
+            u = nodes[v].pred;
+            flow = min(flow, rGraph[u][v].first);
+        }
+        for(v = dest; v != src; v = nodes[v].pred){
+            u = nodes[v].pred;
+            rGraph[u][v].first -= flow;
+            rGraph[v][u].first += flow;
+        }
+        max_flow += flow;
+    }
+    return max_flow;
+}
 
 int Graph2::edmondskarp(Graph2 g, int src, int dest) {
     int u, v;
@@ -240,14 +259,14 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
         }
         max_flow += flow;
     }
-    cout << "\nO fluxo máximo deste grafo é de: " << max_flow;
+    cout << "\nThe max flow of this graph is: " << max_flow;
     vector<vector<vector<int>>> flow_graph = create_Flux_graph(rGraph);
-    cout << "Um encaminhamento possível é: \n";
+    cout << "A possible path is: \n";
     for(int i = 0; i <= n; i++){
         for(int j = 0; j <= n; j++){
             if(flow_graph[i][j][2] <= 0 ) continue;
             else{
-                cout << "Do nó " << i << " para o nó " << j << " movem-se " << flow_graph[i][j][2] << " pessoas. \n";
+                cout << "From node " << i << " to node " << j << ", " << flow_graph[i][j][2] << " people moved\n  ";
             }
 
         }
@@ -289,4 +308,42 @@ vector<vector<vector<int>>> Graph2::create_Flux_graph(vector<vector<pair<int, in
     }
 
     return flow_graph;
+}
+
+int Graph2::random_dimension_divided_groups(Graph2 g, int src, int dest, int dimension) {
+    int u, v;
+    vector<vector<pair<int, int>>> rGraph = createResidualGraph(g);
+    int max_flow = 0;
+    while(bfs_for_scenario2(src, dest, rGraph) && max_flow < dimension){
+        int flow = INT32_MAX;
+        for(v = dest; v != src; v = nodes[v].pred){
+            u = nodes[v].pred;
+            flow = min(flow, rGraph[u][v].first);
+        }
+        for(v = dest; v != src; v = nodes[v].pred){
+            u = nodes[v].pred;
+            rGraph[u][v].first -= flow;
+            rGraph[v][u].first += flow;
+        }
+        max_flow += flow;
+    }
+    int real_max_flow = max_flow_separated_groups(g, src, dest);
+    if(dimension > real_max_flow){
+        cout << "Given this dimension, it's impossible to arrive at node " << dest;
+        return 0;
+    }
+    vector<vector<vector<int>>> flow_graph = create_Flux_graph(rGraph);
+    cout << "A possible path is: \n";
+    for(int i = 0; i <= n; i++){
+        for(int j = 0; j <= n; j++){
+            if(flow_graph[i][j][2] <= 0 ) continue;
+            else if(flow_graph[i][j][2] > dimension) flow_graph[i][j][2] = dimension;
+            cout << i << "->" << j << " ";
+
+
+        }
+    }
+
+
+    return max_flow;
 }

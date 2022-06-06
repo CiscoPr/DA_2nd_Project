@@ -93,4 +93,8 @@ public:
     bool bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>> resid);
 
     vector<vector<vector<int>>> create_Flux_graph(vector<vector<pair<int, int>>> rGraph);
+
+    int random_dimension_divided_groups(Graph2 g, int src, int dest, int dimension);
+
+    int max_flow_separated_groups(Graph2 g, int src, int dest);
 };

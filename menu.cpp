@@ -56,19 +56,26 @@ void Menu::start() {
                 break;
             }
             case 3: {
+                int dim;
                 interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
-
-                //g.edmondskarp(g, p1.first, p1.second);
+                cout << "Please input a dimension for a group: ";
+                cin >> dim;
+                g.random_dimension_divided_groups(g, p1.first, p1.second, dim);
                 error = false;
                 break;
             }
             case 4: {
+                int dim, incr;
                 interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
-
+                cout << "Please input a dimension for a group: ";
+                cin >> dim;
+                cout << "Now, please input the number you want to be added to that dimension: ";
+                cin >> incr;
+                g.random_dimension_divided_groups(g, p1.first, p1.second, (dim+incr));
                 //g.edmondskarp(g, p1.first, p1.second);
                 error = false;
                 break;
