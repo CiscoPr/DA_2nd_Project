@@ -91,4 +91,6 @@ public:
     vector<vector<pair<int,int>>> createResidualGraph(Graph2 g);
 
     bool bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>> resid);
+
+    vector<vector<vector<int>>> create_Flux_graph(vector<vector<pair<int, int>>> rGraph);
 };

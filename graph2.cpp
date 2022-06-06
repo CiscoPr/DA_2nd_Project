@@ -194,20 +194,20 @@ vector<vector<pair<int, int>>> Graph2::createResidualGraph(Graph2 g) {
 bool Graph2::bfs_for_scenario2(int src, int dest, vector<vector<pair<int, int>>> resid){
     // initialize all nodes as unvisited
     for(int v=1; v<=n; v++){
-        nodes[v]. visited = false;
+        nodes[v].visited = false;
         nodes[v].pred = NULL;
     }
     queue<int> q; // queue of unvisited nodes
     q.push(src);
-    nodes[src]. visited = true ;
+    nodes[src].visited = true ;
     while(!q.empty ()) { // while there are still unprocessed nodes
         int u = q.front (); q.pop (); // remove first element of q
-        cout << u << " "; // show node order
+        //cout << u << " "; // show node order
         for (auto e : nodes[u]. adj) {
             int w = e.dest;
             if ((!nodes[w]. visited) && (resid[u][w].first > 0)) { // new node!
                 if(w == dest){
-                    cout << w << " ";
+                    //cout << w << " ";
                     nodes[w]. visited = true ;
                     nodes[w].pred = u;
                     return true;
@@ -241,5 +241,42 @@ int Graph2::edmondskarp(Graph2 g, int src, int dest) {
         max_flow += flow;
     }
     cout << "\nO fluxo máximo deste grafo é de: " << max_flow;
+    vector<vector<vector<int>>> flow_graph = create_Flux_graph(rGraph);
+    cout << "A possible path is: ";
+
     return max_flow;
+}
+
+vector<vector<vector<int>>> Graph2::create_Flux_graph(vector<vector<pair<int, int>>> rGraph){
+    vector<vector<vector<int>>> flow_graph;
+    vector<vector<int>> edges;
+    for(int i = 0; i <= n; i++){
+        flow_graph.push_back(edges);
+    }
+    int i=0;
+    while(i <= n){
+        for(int it = 0; it <= n; it++){
+            flow_graph[i].push_back({0,0,0});
+        }
+        i++;
+    }
+
+    int j = 1;
+    while(j <= n){
+        for(auto e: nodes[j].adj){
+            int w = e.dest;
+            int c = e.capacity;
+            int d = e.duration;
+        flow_graph[j][w] = {c, d, 0};
+        }
+        j++;
+    }
+
+    for(int i = 0; i <= n; i++){
+        for(int j = 0; j <= n; j++){
+            flow_graph[i][j][2] = flow_graph[i][j][0] - rGraph[i][j].first;
+        }
+    }
+
+    return flow_graph;
 }
