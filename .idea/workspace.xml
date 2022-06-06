@@ -3,7 +3,7 @@
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
-  <component name="CMakeRunConfigurationManager">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="DA_2nd_Project" targetName="DA_2nd_Project" />
     </generated>
@@ -15,7 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80c9e607-9972-4c26-9889-0cf9ab6c46fd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/menu.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

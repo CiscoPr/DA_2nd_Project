@@ -41,7 +41,11 @@ void Menu::start() {
                 interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
+                chrono::high_resolution_clock::time_point start1, end1;
+                start1 = chrono::high_resolution_clock::now();
                 g.maxFlow(p1.first, p1.second);
+                end1 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end1-start1).count() << " elapsed microseconds";
 
                 error = false;
                 break;
@@ -50,7 +54,11 @@ void Menu::start() {
                 interfaceNodes(g, file, dataset_number, dataset_file);
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
+                chrono::high_resolution_clock::time_point start2, end2;
+                start2 = chrono::high_resolution_clock::now();
                 g.scenario2(p1.first, p1.second);
+                end2 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end2-start2).count() << " elapsed microseconds";
 
                 error = false;
                 break;
@@ -62,7 +70,11 @@ void Menu::start() {
                 pair <int, int> p1 = file.chooseNodes(g, 1);
                 cout << "Please input a dimension for a group: ";
                 cin >> dim;
+                chrono::high_resolution_clock::time_point start3, end3;
+                start3 = chrono::high_resolution_clock::now();
                 g.random_dimension_divided_groups(g, p1.first, p1.second, dim);
+                end3 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end3-start3).count() << " elapsed microseconds";
                 error = false;
                 break;
             }
@@ -75,8 +87,12 @@ void Menu::start() {
                 cin >> dim;
                 cout << "Now, please input the number you want to be added to that dimension: ";
                 cin >> incr;
+                chrono::high_resolution_clock::time_point start4, end4;
+                start4 = chrono::high_resolution_clock::now();
                 g.random_dimension_divided_groups(g, p1.first, p1.second, (dim+incr));
                 //g.edmondskarp(g, p1.first, p1.second);
+                end4 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end4-start4).count() << " elapsed microseconds";
                 error = false;
                 break;
             }
@@ -85,7 +101,11 @@ void Menu::start() {
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
 
+                chrono::high_resolution_clock::time_point start5, end5;
+                start5 = chrono::high_resolution_clock::now();
                 g.edmondskarp(g, p1.first, p1.second);
+                end5 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end5-start5).count() << " elapsed microseconds";
                 error = false;
                 break;
             }
@@ -94,7 +114,11 @@ void Menu::start() {
 
                 pair <int, int> p1 = file.chooseNodes(g, 1);
 
+                chrono::high_resolution_clock::time_point start6, end6;
+                start6 = chrono::high_resolution_clock::now();
                 g.minimum_time(g, p1.first, p1.second);
+                end6 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end6-start6).count() << " elapsed microseconds";
                 error = false;
                 break;
             }
@@ -107,8 +131,12 @@ void Menu::start() {
                 cout << "Please input a dimension for a group: ";
                 cin >> dim;
                 vector<vector<int>> path;
+                chrono::high_resolution_clock::time_point start7, end7;
+                start7 = chrono::high_resolution_clock::now();
                 path = g.random_dimension_divided_groups(g, p1.first, p1.second, dim);
                 g.maximum_wait_time(g, path);
+                end7 = chrono::high_resolution_clock::now();
+                cout << '\n' << "total of " << chrono::duration_cast<chrono::microseconds>(end7-start7).count() << " elapsed microseconds";
                 error = false;
                 break;
             }

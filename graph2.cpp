@@ -100,19 +100,20 @@ void Graph2::scenario2(int start, int end) {
         c = nodes[c].pred;
     }
     cout << "The shortest path has: " << path.size() << " stops" <<  endl;
+    for (auto node : path) cout << node << " ";
     cout << endl;
 
-    cout << "The minimum flow worth considering is: " << minFlow << endl
-    << "The maximum number of stops worth considering is: " << maxStops << endl;
+    cout << endl << "The minimum flow worth considering is: " << minFlow << endl
+         << "\nThe maximum number of stops worth considering is: " << maxStops << endl;
 
-    /*for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         nodes[i].pred = 0;
         nodes[i].visited = false;
         nodes[i].flow = 0;
     }
     nodes[start].flow = INT32_MAX;
 
-    vector<queue<int>> help;
+    /*vector<queue<int>> help;
     queue<int> aux;
     printAllPaths(start, end, help, aux);
 
@@ -120,7 +121,7 @@ void Graph2::scenario2(int start, int end) {
 
     for (queue<int> a : help) {
 
-        cout << endl << "Flow: "  << 0 << endl;
+        cout << endl << "Flow: "  << nodes[end].flow << endl;
         cout << "Stops: " << a.size() << endl;
         cout << "Path: ";
 
@@ -128,13 +129,14 @@ void Graph2::scenario2(int start, int end) {
             cout << a.front() << " ";
             a.pop();
         }
+        cout << endl;
     }*/
 }
 
 void Graph2::printAllPaths(int s, int d, vector<queue<int>> &help, queue<int> aux) {
 
     if(aux.size() >= maxStops) return;
-    if (nodes[s].flow <= minFlow) return;
+    if (nodes[s].flow < minFlow) return;
 
     nodes[s].visited = true;
     aux.push(s);
